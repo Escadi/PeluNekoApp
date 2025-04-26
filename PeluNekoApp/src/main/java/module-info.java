@@ -10,7 +10,12 @@ module org.example.pelunekoapp {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires java.desktop;
 
-    opens org.example.pelunekoapp to javafx.fxml;
-    exports org.example.pelunekoapp;
+    opens View to javafx.fxml, javafx.graphics, org.junit.jupiter.api;
+    opens MainApp to javafx.fxml, javafx.graphics,org.junit.jupiter.api;
+    opens ViewFXML to javafx.fxml, javafx.graphics,org.junit.jupiter.api;
+
+    exports MainApp;
+    exports View;
 }
