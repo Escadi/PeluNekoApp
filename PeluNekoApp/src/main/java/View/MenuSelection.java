@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
@@ -43,15 +44,32 @@ public class MenuSelection {
             Parent root = loader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
+            stage.setMaximized(true);
+            stage.initStyle(StageStyle.UTILITY);
             stage.setTitle(titulo);
             stage.show();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Error al cargar la ventana: " + e.getMessage());
         }
     }
     public void ventanaAnimales() {
         abrirVentana("/ViewFXML/AnimalList.fxml", "Lista de Animales");
         ((Stage) btnAnimales.getScene().getWindow()).close();
+    }
+    public void ventanaNuevos() {
+
+        ((Stage) btnNuevos.getScene().getWindow()).close();
+
+    }
+    public void ventanaVoluntarios() {
+
+        ((Stage) btnVoluntarios.getScene().getWindow()).close();
+
+    }
+    public void ventanaAdopciones() {
+
+        ((Stage) btnAdopciones.getScene().getWindow()).close();
+
     }
 
 

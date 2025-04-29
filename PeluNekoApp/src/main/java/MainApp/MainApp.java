@@ -14,6 +14,7 @@ public class MainApp extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("/ViewFXML/MainScreen.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.initStyle(StageStyle.UTILITY);
+        stage.setMaximized(true);
         stage.setTitle("PeluNeko Adopciones APP");
         stage.setScene(scene);
         stage.show();

@@ -6,47 +6,48 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 
-<AnchorPane maxHeight="841.0" maxWidth="1241.0" minHeight="840.0" minWidth="1240.0" prefHeight="840.0" prefWidth="1240.0" styleClass="backgroundScreen" stylesheets="@../Styles/Colors.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MainScreen">
+<AnchorPane prefHeight="840.0" prefWidth="1240.0" styleClass="backgroundScreen" stylesheets="@../Styles/Colors.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MainScreen">
+
    <children>
-      <VBox layoutX="746.0" layoutY="289.0" prefHeight="262.0" prefWidth="281.0">
-         <children>
+      <VBox fx:id="vboxMain" alignment="CENTER" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+
+
+         <ImageView fitHeight="534.0" fitWidth="446.0" preserveRatio="true" translateX="-300.0" translateY="200.0">
+            <image>
+               <Image url="@../Images/PelunekoLogoLetras.png" />
+            </image>
+         </ImageView>
+
+
+         <VBox alignment="CENTER" maxWidth="382.0" prefHeight="316.0" prefWidth="338.0" spacing="20.0" translateX="300.0" translateY="-245.0">
             <Label styleClass="mainLabel" stylesheets="@../Styles/TextStyles.css" text="Iniciar Sesión" />
-            <Line endX="207.0" startX="-100.0" stroke="#a63f22" strokeWidth="3.0" />
-            <Label styleClass="mainLabelSecondary" stylesheets="@../Styles/TextStyles.css" text="Nº de Refugio">
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-            </Label>
-            <TextField fx:id="textFieldRefugio">
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
+
+            <Line endX="207.0" startX="-100.0" stroke="#a63f22" strokeWidth="5.0" />
+
+            <Label styleClass="mainLabelSecondary" stylesheets="@../Styles/TextStyles.css" text="Nº de Refugio" />
+            <TextField fx:id="textFieldRefugio" maxHeight="101.0" maxWidth="250.0" prefHeight="72.0" prefWidth="250.0">
                <padding>
-                  <Insets bottom="10.0" />
+                  <Insets bottom="20.0" />
                </padding></TextField>
-            <Label styleClass="mainLabelSecondary" stylesheets="@../Styles/TextStyles.css" text="Contraseña">
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-            </Label>
-            <PasswordField fx:id="textFieldPassword">
+
+            <Label styleClass="mainLabelSecondary" stylesheets="@../Styles/TextStyles.css" text="Contraseña" />
+            <PasswordField fx:id="textFieldPassword" maxWidth="250.0">
                <padding>
-                  <Insets bottom="10.0" />
-               </padding>
-            </PasswordField>
-            <Button fx:id="btnAcceder" mnemonicParsing="false" onAction="#acceso" styleClass="btnJoin" stylesheets="@../Styles/Buttons.css" text="ACCEDER">
-               <VBox.margin>
-                  <Insets left="110.0" top="30.0" />
-               </VBox.margin>
-            </Button>
-         </children>
+                  <Insets bottom="20.0" />
+               </padding></PasswordField>
+
+            <Button fx:id="btnAcceder" maxWidth="150.0" mnemonicParsing="false" onAction="#acceso" styleClass="btnJoin" stylesheets="@../Styles/Buttons.css" text="ACCEDER" />
+            <VBox.margin>
+               <Insets />
+            </VBox.margin>
+         </VBox>
+
+
+         <VBox alignment="CENTER" translateY="-100.0">
+            <Label styleClass="creditsLabel" stylesheets="@../Styles/TextStyles.css" text="Realizado por Eliu Manuel Viera Lorenzo" />
+            <Label styleClass="creditsLabel" stylesheets="@../Styles/TextStyles.css" text="Peluneko Version 1.0" />
+         </VBox>
+
       </VBox>
-      <Label layoutX="543.0" layoutY="733.0" styleClass="creditsLabel" stylesheets="@../Styles/TextStyles.css" text="Realizado por Eliu Manuel Viera Lorenzo" />
-      <Label layoutX="597.0" layoutY="768.0" styleClass="creditsLabel" stylesheets="@../Styles/TextStyles.css" text="Peluneko Version 1.0" />
-      <ImageView fitHeight="562.0" fitWidth="570.0" layoutX="97.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Images/PelunekoLogoLetras.png" />
-         </image>
-      </ImageView>
    </children>
 </AnchorPane>

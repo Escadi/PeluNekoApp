@@ -1,12 +1,12 @@
 package View;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
@@ -39,6 +39,8 @@ public class MainScreen {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
             Stage stage = new Stage();
             stage.setScene(new Scene(loader.load()));
+            stage.setMaximized(true);
+            stage.initStyle(StageStyle.UTILITY);
             stage.setTitle(titulo);
             stage.show();
         } catch (IOException e) {
@@ -46,7 +48,7 @@ public class MainScreen {
         }
     }
 
-    public void acceso(ActionEvent event) {
+    public void acceso() {
         abrirVentana("/ViewFXML/MenuSelection.fxml", "Menu Principal");
         ((Stage) btnAcceder.getScene().getWindow()).close();
     }
