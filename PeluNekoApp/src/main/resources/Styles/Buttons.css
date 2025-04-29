@@ -3,13 +3,85 @@
 |                       MainScreen Button                       |
 +---------------------------------------------------------------+
 */
-.btnJoin{
-    -fx-background-color: #8F7E74; /* Green */
+.btnJoin {
+    -fx-background-color: #8F7E74;
     -fx-text-fill: #42433B;
     -fx-font-size: 16px;
     -fx-font-weight: bold;
     -fx-border-color: #a63f22;
     -fx-border-radius: 5px;
     -fx-background-radius: 5px;
-
 }
+
+
+/*
++---------------------------------------------------------------+
+|                    Stickers Menu Button VBox                  |
++---------------------------------------------------------------+
+*/
+
+.btnMenuStickers{
+    -fx-background-color: #8F7E74;
+    -fx-text-fill: #42433B;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-border-color: #a63f22;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-pref-width: 100px;
+    -fx-transition: -fx-pref-width 0.3s ease-in-out, -fx-text-fill 0.3s ease-in-out;
+}
+.btnMenuStickers:hover{
+    -fx-background-color: #8F7E74;
+    -fx-text-fill: #42433B;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-border-color: #a63f22;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 5px;
+    -fx-rotate: 15px;
+    -fx-transition: -fx-rotate 0.3s ease-in-out, -fx-text-fill 0.3s ease-in-out;
+}
+
+/*
++---------------------------------------------------------------+
+|                       Buttons ListaAnimales                   |
++---------------------------------------------------------------+
+*/
+
+.btnRegistrar{
+    -fx-background-color: #8F7E74;
+    -fx-text-fill: #42433B;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-border-color: #a63f22;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+.btnRegistrar:hover{
+    -fx-background-color: #a63f22;
+    -fx-text-fill: #42433B;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-border-color: #8F7E74;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-scale-y: 1.2;
+    -fx-scale-x: 1.2;
+}
+
+.btnAdd{
+    -fx-background-color: transparent;
+    -fx-scale-y: 1;
+    -fx-scale-x: 1;
+}
+.btnAdd:hover{
+    -fx-background-color: transparent;
+    -fx-scale-y: 1.2;
+    -fx-scale-x: 1.2;
+}
+
+
+
+
+

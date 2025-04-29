@@ -1,0 +1,14 @@
+/*
++---------------------------------------------------------------+
+|                         VboxMenuStyle                         |
++---------------------------------------------------------------+
+*/
+.vboxMenu{
+    -fx-background-color: #DAC8C0;
+}
+
+.vboxGeneral{
+    -fx-background-color: #DAC8C0;
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+}

@@ -1,4 +1,4 @@
-module org.example.pelunekoapp {
+module PeluNekoApp {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
@@ -12,9 +12,9 @@ module org.example.pelunekoapp {
     requires com.almasb.fxgl.all;
     requires java.desktop;
 
-    opens View to javafx.fxml, javafx.graphics, org.junit.jupiter.api;
-    opens MainApp to javafx.fxml, javafx.graphics,org.junit.jupiter.api;
-    opens ViewFXML to javafx.fxml, javafx.graphics,org.junit.jupiter.api;
+    opens View to javafx.fxml, org.junit.jupiter.api;
+    opens MainApp to javafx.fxml, org.junit.jupiter.api;
+    opens ViewFXML to javafx.fxml, org.junit.jupiter.api;
 
     exports MainApp;
     exports View;

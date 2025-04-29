@@ -1,5 +1,6 @@
 package View;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -7,7 +8,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 
 public class MainScreen {
@@ -20,7 +20,7 @@ public class MainScreen {
     private Button btnAcceder;
 
 
-
+    public MainScreen() {}
 
 
 
@@ -38,7 +38,7 @@ public class MainScreen {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
             Stage stage = new Stage();
-            stage.setScene(new Scene(loader.load(), 1440, 900));
+            stage.setScene(new Scene(loader.load()));
             stage.setTitle(titulo);
             stage.show();
         } catch (IOException e) {
@@ -47,7 +47,7 @@ public class MainScreen {
     }
 
     public void acceso(ActionEvent event) {
-        abrirVentana("/ViewFXML/AnimalList.fxml", "Listado de Animales");
+        abrirVentana("/ViewFXML/MenuSelection.fxml", "Menu Principal");
         ((Stage) btnAcceder.getScene().getWindow()).close();
     }
 

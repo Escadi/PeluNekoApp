@@ -6,9 +6,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 
-<AnchorPane prefHeight="900.0" prefWidth="1440.0" styleClass="backgroundScreen" stylesheets="@../Styles/Colors.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MainScreen">
+<AnchorPane maxHeight="841.0" maxWidth="1241.0" minHeight="840.0" minWidth="1240.0" prefHeight="840.0" prefWidth="1240.0" styleClass="backgroundScreen" stylesheets="@../Styles/Colors.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MainScreen">
    <children>
-      <VBox layoutX="898.0" layoutY="319.0" prefHeight="262.0" prefWidth="281.0">
+      <VBox layoutX="746.0" layoutY="289.0" prefHeight="262.0" prefWidth="281.0">
          <children>
             <Label styleClass="mainLabel" stylesheets="@../Styles/TextStyles.css" text="Iniciar Sesión" />
             <Line endX="207.0" startX="-100.0" stroke="#a63f22" strokeWidth="3.0" />
@@ -34,16 +34,16 @@
                   <Insets bottom="10.0" />
                </padding>
             </PasswordField>
-            <Button fx:id="btnAcceder"  mnemonicParsing="false" styleClass="btnJoin" stylesheets="@../Styles/Buttons.css" text="ACCEDER">
+            <Button fx:id="btnAcceder" mnemonicParsing="false" onAction="#acceso" styleClass="btnJoin" stylesheets="@../Styles/Buttons.css" text="ACCEDER">
                <VBox.margin>
                   <Insets left="110.0" top="30.0" />
                </VBox.margin>
             </Button>
          </children>
       </VBox>
-      <Label layoutX="606.0" layoutY="787.0" styleClass="creditsLabel" stylesheets="@../Styles/TextStyles.css" text="Realizado por Eliu Manuel Viera Lorenzo" />
-      <Label layoutX="660.0" layoutY="822.0" styleClass="creditsLabel" stylesheets="@../Styles/TextStyles.css" text="Peluneko Version 1.0" />
-      <ImageView fitHeight="562.0" fitWidth="570.0" layoutX="185.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
+      <Label layoutX="543.0" layoutY="733.0" styleClass="creditsLabel" stylesheets="@../Styles/TextStyles.css" text="Realizado por Eliu Manuel Viera Lorenzo" />
+      <Label layoutX="597.0" layoutY="768.0" styleClass="creditsLabel" stylesheets="@../Styles/TextStyles.css" text="Peluneko Version 1.0" />
+      <ImageView fitHeight="562.0" fitWidth="570.0" layoutX="97.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Images/PelunekoLogoLetras.png" />
          </image>

@@ -12,7 +12,7 @@ public class MainApp extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("/ViewFXML/MainScreen.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1440, 900);
+        Scene scene = new Scene(fxmlLoader.load());
         stage.initStyle(StageStyle.UTILITY);
         stage.setTitle("PeluNeko Adopciones APP");
         stage.setScene(scene);
