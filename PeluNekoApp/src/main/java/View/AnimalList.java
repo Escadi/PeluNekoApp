@@ -4,19 +4,42 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import Class.*;
 
 import java.io.IOException;
 
 public class AnimalList {
+
     private double xOffset = 0;
     private double yOffset = 0;
+    @FXML
+    private TextField textFieldBuscarAnimal;
     @FXML
     private VBox vboxRegistroAnimales;
     @FXML
     private Button btnAtras;
+    @FXML
+    private TableColumn<Animales, Integer> colNumeroAnimal;
+    @FXML
+    private TableColumn<Animales, String> colTipoAnimal;
+    @FXML
+    private TableColumn<Animales, Double> colPeso;
+    @FXML
+    private TableColumn<Animales, String>colEstado;
+    @FXML
+    private TableColumn<Animales, String> colImagen;
+    @FXML
+    private TableColumn<Animales, String>colRaza;
+    @FXML
+    private TableColumn<Animales, String>colDniVoluntario;
+    @FXML
+    private TableView tablaAnimales;
 
     public AnimalList() {
 
