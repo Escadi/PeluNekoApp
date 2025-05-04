@@ -44,6 +44,9 @@
                   </ImageView>
                </graphic>
             </Button>
+            <VBox.margin>
+               <Insets left="90.0" />
+            </VBox.margin>
          </HBox>
 
 
@@ -55,7 +58,7 @@
                <TableColumn fx:id="colEstado" prefWidth="201.59994506835938" text="Estado" />
                <TableColumn fx:id="colImagen" prefWidth="138.4000244140625" text="Imagen" />
                <TableColumn fx:id="colRaza" prefWidth="253.5999755859375" text="Raza" />
-               <TableColumn fx:id="colDniVoluntario" prefWidth="288.19989013671875" text="Nº Voluntario del registro" />
+               <TableColumn fx:id="colDniVoluntario" prefWidth="288.19989013671875" text="Voluntario del registro" />
             </columns>
             <VBox.margin>
                <Insets top="20.0" />

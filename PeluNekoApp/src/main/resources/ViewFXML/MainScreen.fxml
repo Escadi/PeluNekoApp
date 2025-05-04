@@ -24,14 +24,14 @@
 
             <Line endX="207.0" startX="-100.0" stroke="#a63f22" strokeWidth="5.0" />
 
-            <Label styleClass="mainLabelSecondary" stylesheets="@../Styles/TextStyles.css" text="Nº de Refugio" />
-            <TextField fx:id="textFieldRefugio" maxHeight="101.0" maxWidth="250.0" prefHeight="72.0" prefWidth="250.0">
+            <Label styleClass="mainLabelSecondary" stylesheets="@../Styles/TextStyles.css" text="Voluntario" />
+            <TextField fx:id="textFieldRefugio" alignment="CENTER" maxHeight="101.0" maxWidth="250.0" prefHeight="72.0" prefWidth="250.0">
                <padding>
                   <Insets bottom="20.0" />
                </padding></TextField>
 
             <Label styleClass="mainLabelSecondary" stylesheets="@../Styles/TextStyles.css" text="Contraseña" />
-            <PasswordField fx:id="textFieldPassword" maxWidth="250.0">
+            <PasswordField fx:id="textFieldPassword" alignment="CENTER" maxWidth="250.0">
                <padding>
                   <Insets bottom="20.0" />
                </padding></PasswordField>

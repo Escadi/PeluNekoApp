@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="840.0" prefWidth="1240.0" styleClass="backgroundScreen" stylesheets="@../Styles/Colors.css"
+            xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="View.LoginVoluntarios">
+
+    <children>
+
+        <VBox fx:id="vboxMain" alignment="TOP_CENTER" spacing="10.0" AnchorPane.bottomAnchor="20.0"
+              AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="0.0">
+
+
+            <VBox>
+                <ImageView fitHeight="139.0" fitWidth="328.0" preserveRatio="true" translateX="65.0">
+                    <image>
+                        <Image url="@../Images/BannerLoginVoluntarios.png"/>
+                    </image>
+                </ImageView>
+                <HBox alignment="CENTER" translateX="100.0" translateY="-30.0" HBox.hgrow="ALWAYS">
+                    <children>
+                        <Line endX="979.0" startX="0.0" stroke="#a63f22" strokeWidth="3.0" HBox.hgrow="ALWAYS"/>
+                    </children>
+                </HBox>
+            </VBox>
+
+
+            <HBox alignment="CENTER" spacing="10.0">
+                <TextField fx:id="textFieldBuscarUsuario" alignment="CENTER" prefHeight="45.0" prefWidth="300.0"
+                           promptText="Buscar Usuario" stylesheets="@../Styles/TexfFieldStyles.css">
+                    <font>
+                        <Font name="System Bold" size="14.0"/>
+                    </font>
+                </TextField>
+
+                <Button fx:id="btnAnadir" onAction="#registroVbox" prefHeight="45.0" prefWidth="45.0"
+                        styleClass="btnAdd" stylesheets="@../Styles/Buttons.css">
+                    <graphic>
+                        <ImageView fitHeight="27.0" fitWidth="26.0" preserveRatio="true">
+                            <image>
+                                <Image url="@../Images/Iconos/anadir.png"/>
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <padding>
+                    <Insets left="80.0"/>
+                </padding>
+            </HBox>
+
+
+            <TableView fx:id="tablaLogin" maxHeight="502.0" maxWidth="901.0" minHeight="500.0" minWidth="900.0"
+                       prefHeight="501.0" prefWidth="1000.0" translateX="17.0" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colDniVoluntario" prefWidth="268.99999392032623" text="DNI del voluntario"/>
+                    <TableColumn fx:id="colPassword" prefWidth="367.00006103515625" text="Contraseña"/>
+                    <TableColumn fx:id="colRol" minWidth="9.5999755859375" prefWidth="265.79998779296875" text="Rol"/>
+
+                </columns>
+                <VBox.margin>
+                    <Insets top="20.0"/>
+                </VBox.margin>
+            </TableView>
+
+        </VBox>
+        <Button fx:id="btnAtras" layoutX="14.0" layoutY="8.0" mnemonicParsing="false" onAction="#atrasVentanas"
+                prefHeight="45.0" prefWidth="50.0" styleClass="btnAdd" stylesheets="@../Styles/Buttons.css">
+            <graphic>
+                <ImageView fitHeight="42.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../Images/Iconos/atras.png"/>
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+
+
+        <VBox fx:id="vboxRegistroLogin" alignment="TOP_CENTER" maxWidth="350.0" prefHeight="471.0" prefWidth="343.0"
+              styleClass="vboxGeneral" stylesheets="@../Styles/vBoxStyles.css" visible="false">
+
+            <ImageView fitHeight="146.0" fitWidth="324.0" preserveRatio="true">
+                <image>
+                    <Image url="@../Images/BannerInicioSesion.png"/>
+                </image>
+            </ImageView>
+
+            <Line endX="100.0" startX="-220.0" stroke="#a63f22" strokeWidth="3.0"/>
+
+            <Label styleClass="labelVbox" stylesheets="@../Styles/TextStyles.css" text="DNI voluntario"/>
+            <TextField fx:id="textFieldDNIvoluntario" prefHeight="35.0" prefWidth="317.0">
+                <VBox.margin>
+                    <Insets left="10.0" right="10.0"/>
+                </VBox.margin>
+            </TextField>
+
+            <Label styleClass="labelVbox" stylesheets="@../Styles/TextStyles.css" text="Contraseña"/>
+            <TextField fx:id="textFieldPassword" prefHeight="35.0" prefWidth="317.0">
+                <VBox.margin>
+                    <Insets left="10.0" right="10.0"/>
+                </VBox.margin>
+            </TextField>
+            <Label layoutX="128.0" layoutY="227.0" styleClass="labelVbox" stylesheets="@../Styles/TextStyles.css"
+                   text="Rol"/>
+            <ComboBox fx:id="comboBoxRol" prefHeight="35.0" prefWidth="317.0">
+                <VBox.margin>
+                    <Insets left="10.0" right="10.0"/>
+                </VBox.margin>
+            </ComboBox>
+
+            <Button fx:id="btnRegistrarAdopcion" mnemonicParsing="false" prefHeight="40.0" prefWidth="145.0"
+                    styleClass="btnRegistrar" stylesheets="@../Styles/Buttons.css" text="Registrar" translateX="-80.0"
+                    translateY="7.0">
+                <VBox.margin>
+                    <Insets top="20.0"/>
+                </VBox.margin>
+            </Button>
+
+            <Button fx:id="btnSalir" onAction="#salirVentanas" prefHeight="40.0" prefWidth="145.0"
+                    styleClass="btnRegistrar" stylesheets="@../Styles/Buttons.css" text="Salir" translateX="80.0"
+                    translateY="-50.0">
+                <VBox.margin>
+                    <Insets top="20.0"/>
+                </VBox.margin>
+            </Button>
+        </VBox>
+
+    </children>
+</AnchorPane>

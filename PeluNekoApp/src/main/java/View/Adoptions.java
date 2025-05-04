@@ -1,5 +1,10 @@
 package View;
 
+import Entity.Adopcione;
+import Entity.Nuevosdueno;
+import Models.AdopcionesModel;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -7,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -31,23 +37,22 @@ public class Adoptions {
     @FXML
     private TableView tablaAdopciones;
     @FXML
-    private TableColumn colNumeroAnimal;
+    private TableColumn<Adopcione, String> colNumeroAnimal;
     @FXML
-    private TableColumn colDNIPropietario;
+    private TableColumn<Adopcione, String> colDNIPropietario;
     @FXML
-    private TableColumn colFechaAdopcion;
+    private TableColumn<Adopcione, String> colFechaAdopcion;
 
     @FXML
     public void initialize() {
-        /*
-        colDniVoluntario.setCellValueFactory(cellData -> cellData.getValue().dniProperty());
-        colNombreVoluntario.setCellValueFactory(cellData -> cellData.getValue().nombreProperty());
-        colApellido1Voluntario.setCellValueFactory(cellData -> cellData.getValue().apellido1Property());
-        colApellido2Voluntario.setCellValueFactory(cellData -> cellData.getValue().apellido2Property());
-        colDireccionVoluntario.setCellValueFactory(cellData -> cellData.getValue().direccionProperty());
-        colLocalidadVoluntario.setCellValueFactory(cellData -> cellData.getValue().localidadProperty());
-        colCPVoluntario.setCellValueFactory(cellData -> cellData.getValue().cpProperty());
-         */
+        colNumeroAnimal.setCellValueFactory(new PropertyValueFactory<>("IdAdopcionAnimal"));
+        colDNIPropietario.setCellValueFactory(new PropertyValueFactory<>("dniPropietario"));
+        colFechaAdopcion.setCellValueFactory(new PropertyValueFactory<>("fechaAdopcion"));
+        ObservableList<Adopcione> adopciones = FXCollections.observableArrayList(AdopcionesModel.getAdopciones());
+        tablaAdopciones.setItems(adopciones);
+
+
+
     }
 
     /*

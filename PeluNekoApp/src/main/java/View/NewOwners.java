@@ -1,5 +1,9 @@
 package View;
 
+import Entity.Nuevosdueno;
+import Models.PropietariosModel;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -7,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -37,34 +42,36 @@ public class NewOwners {
     @FXML
     private VBox vboxRegistroPropietario;
     @FXML
-    private TableColumn colDniPropietarios;
+    private TableColumn<Nuevosdueno, String> colDniPropietarios;
     @FXML
-    private TableColumn colNombrePropietarios;
+    private TableColumn<Nuevosdueno, String> colNombrePropietarios;
     @FXML
-    private TableColumn colApellido1Propietarios;
+    private TableColumn<Nuevosdueno, String> colApellido1Propietarios;
     @FXML
-    private TableColumn colApellido2Propietarios;
+    private TableColumn<Nuevosdueno, String> colApellido2Propietarios;
     @FXML
-    private TableColumn colDireccionPropietarios;
+    private TableColumn<Nuevosdueno, String> colDireccionPropietarios;
     @FXML
-    private TableColumn colLocalidadPropietarios;
+    private TableColumn<Nuevosdueno, String> colLocalidadPropietarios;
     @FXML
-    private TableColumn colCPPropietarios;
+    private TableColumn<Nuevosdueno, String> colCPPropietarios;
     @FXML
     private TableView tablaPropietarios;
     @FXML
     private Button btnAtras;
+
     @FXML
     public void initialize() {
-        // Initialize the table columns and other components here if needed
-        // For example, you can set cell value factories for the table columns
-        // colDniPropietarios.setCellValueFactory(new PropertyValueFactory<>("dni"));
-        // colNombrePropietarios.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-        // colApellido1Propietarios.setCellValueFactory(new PropertyValueFactory<>("apellido1"));
-        // colApellido2Propietarios.setCellValueFactory(new PropertyValueFactory<>("apellido2"));
-        // colDireccionPropietarios.setCellValueFactory(new PropertyValueFactory<>("direccion"));
-        // colLocalidadPropietarios.setCellValueFactory(new PropertyValueFactory<>("localidad"));
-        // colCPPropietarios.setCellValueFactory(new PropertyValueFactory<>("cp"));
+        colDniPropietarios.setCellValueFactory(new PropertyValueFactory<>("dni"));
+        colNombrePropietarios.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        colApellido1Propietarios.setCellValueFactory(new PropertyValueFactory<>("apellido1"));
+        colApellido2Propietarios.setCellValueFactory(new PropertyValueFactory<>("apellido2"));
+        colDireccionPropietarios.setCellValueFactory(new PropertyValueFactory<>("direccion"));
+        colLocalidadPropietarios.setCellValueFactory(new PropertyValueFactory<>("localidad"));
+        colCPPropietarios.setCellValueFactory(new PropertyValueFactory<>("codigoPostal"));
+        ObservableList<Nuevosdueno> propietarios= FXCollections.observableArrayList(PropietariosModel.getPropietarios());
+        tablaPropietarios.setItems(propietarios);
+
     }
 
 

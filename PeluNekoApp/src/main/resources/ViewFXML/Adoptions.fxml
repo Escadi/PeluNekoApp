@@ -52,9 +52,9 @@
 
             <TableView fx:id="tablaAdopciones" maxHeight="502.0" maxWidth="901.0" minHeight="500.0" minWidth="900.0" prefHeight="501.0" prefWidth="1000.0" translateX="17.0" VBox.vgrow="ALWAYS">
                 <columns>
-                    <TableColumn fx:id="colNumeroAnimal" prefWidth="219.99999392032623" text="Nº Animal" />
-                    <TableColumn fx:id="colDNIPropietario" prefWidth="308.79998779296875" text="DNI Nuevo Dueño" />
-                    <TableColumn fx:id="colFechaAdopcion" minWidth="9.5999755859375" prefWidth="372.39996337890625" text="Fecha de Adopción" />
+                    <TableColumn fx:id="colNumeroAnimal" prefWidth="180.0" text="Nº Animal" />
+                    <TableColumn fx:id="colDNIPropietario" prefWidth="411.0" text="Nuevo Propietario" />
+                    <TableColumn fx:id="colFechaAdopcion" minWidth="9.5999755859375" prefWidth="307.0" text="Fecha de Adopción" />
 
                 </columns>
                 <VBox.margin>

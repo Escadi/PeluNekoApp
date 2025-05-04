@@ -53,21 +53,27 @@ public class MenuSelection {
         }
     }
     public void ventanaAnimales() {
-        abrirVentana("/ViewFXML/AnimalList.fxml", "Lista de Animales");
+        abrirVentana("/ViewFXML/AnimalList.fxml", "Animales");
         ((Stage) btnAnimales.getScene().getWindow()).close();
     }
     public void ventanaNuevos() {
-
+        abrirVentana("/ViewFXML/NewOwners.fxml", "Nuevos Dueños");
         ((Stage) btnNuevos.getScene().getWindow()).close();
 
     }
     public void ventanaVoluntarios() {
+        abrirVentana("/ViewFXML/VoluntariosList.fxml", "Voluntarios");
 
         ((Stage) btnVoluntarios.getScene().getWindow()).close();
 
     }
     public void ventanaAdopciones() {
+        abrirVentana("/ViewFXML/Adoptions.fxml", "Adopciones");
+        ((Stage) btnAdopciones.getScene().getWindow()).close();
 
+    }
+    public void ventanaLogin() {
+        abrirVentana("/ViewFXML/LoginVoluntarios.fxml", "Login Voluntarios");
         ((Stage) btnAdopciones.getScene().getWindow()).close();
 
     }

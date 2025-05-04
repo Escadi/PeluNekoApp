@@ -1,13 +1,17 @@
 package View;
 
+import Entity.Voluntarioscentro;
+import Models.VoluntariosModel;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import Class.*;
 
 import java.io.IOException;
 
@@ -17,19 +21,19 @@ public class VoluntariosList {
     @FXML
     private TableView tablaVoluntario;
     @FXML
-    private TableColumn<VoluntariosCentro,String> colDniVoluntario;
+    private TableColumn<Voluntarioscentro,String> colDniVoluntario;
     @FXML
-    private TableColumn<VoluntariosCentro,String> colNombreVoluntario;
+    private TableColumn<Voluntarioscentro,String> colNombreVoluntario;
     @FXML
-    private TableColumn<VoluntariosCentro,String> colApellido1Voluntario;
+    private TableColumn<Voluntarioscentro,String> colApellido1Voluntario;
     @FXML
-    private TableColumn<VoluntariosCentro,String> colApellido2Voluntario;
+    private TableColumn<Voluntarioscentro,String> colApellido2Voluntario;
     @FXML
-    private TableColumn<VoluntariosCentro,String> colDireccionVoluntario;
+    private TableColumn<Voluntarioscentro,String> colDireccionVoluntario;
     @FXML
-    private TableColumn<VoluntariosCentro,String> colLocalidadVoluntario;
+    private TableColumn<Voluntarioscentro,String> colLocalidadVoluntario;
     @FXML
-    private TableColumn<VoluntariosCentro,String> colCPVoluntario;
+    private TableColumn<Voluntarioscentro,String> colCPVoluntario;
     @FXML
     private Button btnAtras;
     @FXML
@@ -54,16 +58,15 @@ public class VoluntariosList {
     private Button btnSalir;
     @FXML
     public void initialize() {
-        /*
-        colDniVoluntario.setCellValueFactory(cellData -> cellData.getValue().dniProperty());
-        colNombreVoluntario.setCellValueFactory(cellData -> cellData.getValue().nombreProperty());
-        colApellido1Voluntario.setCellValueFactory(cellData -> cellData.getValue().apellido1Property());
-        colApellido2Voluntario.setCellValueFactory(cellData -> cellData.getValue().apellido2Property());
-        colDireccionVoluntario.setCellValueFactory(cellData -> cellData.getValue().direccionProperty());
-        colLocalidadVoluntario.setCellValueFactory(cellData -> cellData.getValue().localidadProperty());
-        colCPVoluntario.setCellValueFactory(cellData -> cellData.getValue().cpProperty());
-        // Add any additional initialization logic here
-         */
+        colDniVoluntario.setCellValueFactory(new PropertyValueFactory<>("dNIVoluntario"));
+        colNombreVoluntario.setCellValueFactory(new PropertyValueFactory<>("nombreVoluntario"));
+        colApellido1Voluntario.setCellValueFactory(new PropertyValueFactory<>("apellido1Voluntario"));
+        colApellido2Voluntario.setCellValueFactory(new PropertyValueFactory<>("apellido2Voluntario"));
+        colDireccionVoluntario.setCellValueFactory(new PropertyValueFactory<>("direccionVoluntario"));
+        colLocalidadVoluntario.setCellValueFactory(new PropertyValueFactory<>("localidadVoluntario"));
+        colCPVoluntario.setCellValueFactory(new PropertyValueFactory<>("codigoPostalVoluntario"));
+        ObservableList<Voluntarioscentro> voluntarioscentros = FXCollections.observableArrayList(VoluntariosModel.getVoluntarios());
+        tablaVoluntario.setItems(voluntarioscentros);
     }
 
 

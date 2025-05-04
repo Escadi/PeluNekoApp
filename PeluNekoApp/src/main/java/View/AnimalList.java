@@ -1,5 +1,9 @@
 package View;
 
+import Entity.Animale;
+import Models.AnimalModel;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -7,11 +11,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import Class.*;
+import Entity.*;
 
+
+import javax.persistence.Entity;
 import java.io.IOException;
 
 public class AnimalList {
@@ -25,19 +32,19 @@ public class AnimalList {
     @FXML
     private Button btnAtras;
     @FXML
-    private TableColumn<Animales, Integer> colNumeroAnimal;
+    private TableColumn<Animale, Integer> colNumeroAnimal;
     @FXML
-    private TableColumn<Animales, String> colTipoAnimal;
+    private TableColumn<Animale, String> colTipoAnimal;
     @FXML
-    private TableColumn<Animales, Double> colPeso;
+    private TableColumn<Animale, Double> colPeso;
     @FXML
-    private TableColumn<Animales, String>colEstado;
+    private TableColumn<Animale, String>colEstado;
     @FXML
-    private TableColumn<Animales, String> colImagen;
+    private TableColumn<Animale, String> colImagen;
     @FXML
-    private TableColumn<Animales, String>colRaza;
+    private TableColumn<Animale, String>colRaza;
     @FXML
-    private TableColumn<Animales, String>colDniVoluntario;
+    private TableColumn<Animale, String>colDniVoluntario;
     @FXML
     private TableView tablaAnimales;
 
@@ -47,6 +54,15 @@ public class AnimalList {
 
     @FXML
     public void initialize() {
+        colNumeroAnimal.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colTipoAnimal.setCellValueFactory(new PropertyValueFactory<>("tipoAnimal"));
+        colPeso.setCellValueFactory(new PropertyValueFactory<>("peso"));
+        colEstado.setCellValueFactory(new PropertyValueFactory<>("estado"));
+        colImagen.setCellValueFactory(new PropertyValueFactory<>("imagen"));
+        colRaza.setCellValueFactory(new PropertyValueFactory<>("raza"));
+        colDniVoluntario.setCellValueFactory(new PropertyValueFactory<>("dniVoluntario"));
+        ObservableList<Animale> animal = FXCollections.observableArrayList(AnimalModel.getAnimals());
+        tablaAnimales.setItems(animal);
 
 
 

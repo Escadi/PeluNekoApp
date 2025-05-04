@@ -1,17 +1,44 @@
-package Class;
+package Entity;
 
-public class VoluntariosCentro {
-    private String dniVoluntario;
+import javax.persistence.*;
+import java.util.LinkedHashSet;
+import java.util.Set;
+
+@Entity
+@Table(name = "voluntarioscentro")
+public class Voluntarioscentro {
+    @Id
+    @Column(name = "DNIVoluntario", nullable = false, length = 15)
+    private String dNIVoluntario;
+
+    @Column(name = "NombreVoluntario", nullable = false, length = 50)
     private String nombreVoluntario;
+
+    @Column(name = "Apellido1Voluntario", nullable = false, length = 50)
     private String apellido1Voluntario;
+
+    @Column(name = "Apellido2Voluntario", length = 50)
     private String apellido2Voluntario;
+
+    @Column(name = "DireccionVoluntario", length = 100)
     private String direccionVoluntario;
+
+    @Column(name = "LocalidadVoluntario", length = 50)
     private String localidadVoluntario;
+
+    @Column(name = "CodigoPostalVoluntario", length = 10)
     private String codigoPostalVoluntario;
 
+    @OneToMany(mappedBy = "dNIVoluntario")
+    private Set<Animale> animales = new LinkedHashSet<>();
 
-    public VoluntariosCentro(String dniVoluntario, String nombreVoluntario, String apellido1Voluntario, String apellido2Voluntario, String direccionVoluntario, String localidadVoluntario, String codigoPostalVoluntario) {
-        this.dniVoluntario = dniVoluntario;
+    @OneToOne(mappedBy = "voluntarioscentro")
+    private Logincentro logincentro;
+
+    public Voluntarioscentro() {
+    }
+    public Voluntarioscentro(String dNIVoluntario, String nombreVoluntario, String apellido1Voluntario, String apellido2Voluntario, String direccionVoluntario, String localidadVoluntario, String codigoPostalVoluntario) {
+        this.dNIVoluntario = dNIVoluntario;
         this.nombreVoluntario = nombreVoluntario;
         this.apellido1Voluntario = apellido1Voluntario;
         this.apellido2Voluntario = apellido2Voluntario;
@@ -20,12 +47,12 @@ public class VoluntariosCentro {
         this.codigoPostalVoluntario = codigoPostalVoluntario;
     }
 
-    public String getDniVoluntario() {
-        return dniVoluntario;
+    public String getDNIVoluntario() {
+        return dNIVoluntario;
     }
 
-    public void setDniVoluntario(String dniVoluntario) {
-        this.dniVoluntario = dniVoluntario;
+    public void setDNIVoluntario(String dNIVoluntario) {
+        this.dNIVoluntario = dNIVoluntario;
     }
 
     public String getNombreVoluntario() {
@@ -75,4 +102,21 @@ public class VoluntariosCentro {
     public void setCodigoPostalVoluntario(String codigoPostalVoluntario) {
         this.codigoPostalVoluntario = codigoPostalVoluntario;
     }
+
+    public Set<Animale> getAnimales() {
+        return animales;
+    }
+
+    public void setAnimales(Set<Animale> animales) {
+        this.animales = animales;
+    }
+
+    public Logincentro getLogincentro() {
+        return logincentro;
+    }
+
+    public void setLogincentro(Logincentro logincentro) {
+        this.logincentro = logincentro;
+    }
+
 }
