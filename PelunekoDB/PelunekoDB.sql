@@ -5,7 +5,7 @@ CREATE TABLE Raza (
 );
 
 CREATE TABLE VoluntariosCentro (
-    DNIVoluntario VARCHAR(15) NOT NULL,
+    DNIVoluntario VARCHAR(50) NOT NULL,
     NombreVoluntario VARCHAR(50) NOT NULL,
     Apellido1Voluntario VARCHAR(50) NOT NULL,
     Apellido2Voluntario VARCHAR(50),
@@ -22,7 +22,7 @@ CREATE TABLE Animales (
     Estado VARCHAR(50),
     imagen VARCHAR(255),
     idRaza INT NOT NULL,
-    DNIVoluntario VARCHAR(15),
+    DNIVoluntario VARCHAR(50),
     CONSTRAINT pk_idAnimal PRIMARY KEY (idAnimal),
     CONSTRAINT fk_idRaza FOREIGN KEY (idRaza) REFERENCES Raza(idRaza),
     CONSTRAINT fk_dniVoluntario FOREIGN KEY (DNIVoluntario) REFERENCES VoluntariosCentro(DNIVoluntario)

@@ -16,8 +16,11 @@ public class Animale {
     @Column(name = "tipoAnimal", nullable = false, length = 50)
     private String tipoAnimal;
 
-    @Column(name = "Peso", precision = 5, scale = 2)
-    private BigDecimal peso;
+    @Column(name = "nombre",nullable = false, length = 50)
+    private String nombre;
+
+    @Column(name = "Peso", length = 5)
+    private String peso;
 
     @Column(name = "Estado", length = 50)
     private String estado;
@@ -39,15 +42,14 @@ public class Animale {
     public Animale() {
     }
 
-    public Animale(Integer id, String tipoAnimal, BigDecimal peso, String estado, String imagen, Raza idRaza, Voluntarioscentro dNIVoluntario) {
-        this.id = id;
+    public Animale(String tipo, String text, String  peso, String estado, String imagen, int raza, String dniVoluntario) {
         this.tipoAnimal = tipoAnimal;
+        this.nombre = nombre;
         this.peso = peso;
         this.estado = estado;
         this.imagen = imagen;
         this.idRaza = idRaza;
         this.dNIVoluntario = dNIVoluntario;
-
     }
 
 
@@ -67,11 +69,19 @@ public class Animale {
         this.tipoAnimal = tipoAnimal;
     }
 
-    public BigDecimal getPeso() {
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getPeso() {
         return peso;
     }
 
-    public void setPeso(BigDecimal peso) {
+    public void setPeso(String peso) {
         this.peso = peso;
     }
 
@@ -96,7 +106,7 @@ public class Animale {
     }
 
     public String getRaza() {
-        return idRaza != null ? idRaza.getRaza() : "";
+        return idRaza.getRaza();
     }
 
     public void setIdRaza(Raza idRaza) {

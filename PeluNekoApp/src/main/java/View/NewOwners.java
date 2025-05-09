@@ -1,9 +1,12 @@
 package View;
 
 import Entity.Nuevosdueno;
+import Entity.Voluntarioscentro;
 import Models.PropietariosModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -71,6 +74,30 @@ public class NewOwners {
         colCPPropietarios.setCellValueFactory(new PropertyValueFactory<>("codigoPostal"));
         ObservableList<Nuevosdueno> propietarios= FXCollections.observableArrayList(PropietariosModel.getPropietarios());
         tablaPropietarios.setItems(propietarios);
+
+         /*
++-----------------------------------------------------------------------------------------------+
+|                                       FILTER USERS                                            |
++-----------------------------------------------------------------------------------------------+
+*/
+        FilteredList<Nuevosdueno> filterPropietarios = new FilteredList<>(propietarios, b -> true);
+        textFieldBuscarPropietario.textProperty().addListener((observable, oldValue, newValue) -> {
+            filterPropietarios.setPredicate(propietario -> {
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                } else if (propietario.getDni().toLowerCase().contains(newValue.toLowerCase())) {
+                    return true;
+                } else if (propietario.getNombre().toLowerCase().contains(newValue.toLowerCase())) {
+                    return true;
+                } else if (propietario.getApellido1().toLowerCase().contains(newValue.toLowerCase())) {
+                    return true;
+                }
+                return false;
+            });
+        });
+        SortedList<Nuevosdueno> sortedData = new SortedList<>(filterPropietarios);
+        sortedData.comparatorProperty().bind(tablaPropietarios.comparatorProperty());
+        tablaPropietarios.setItems(sortedData);
 
     }
 

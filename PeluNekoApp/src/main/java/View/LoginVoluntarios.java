@@ -1,9 +1,14 @@
 package View;
 
+import Entity.Logincentro;
+import Models.LoginModel;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -40,14 +45,12 @@ public class LoginVoluntarios {
 
     @FXML
     public void initialize() {
-        /*
-        colDniVoluntario.setCellValueFactory(cellData -> cellData.getValue().dniProperty());
-        colPassword.setCellValueFactory(cellData -> cellData.getValue().passwordProperty());
-        colRol.setCellValueFactory(cellData -> cellData.getValue().rolProperty());
+        colDniVoluntario.setCellValueFactory(new PropertyValueFactory<>("idVoluntario"));
+        colPassword.setCellValueFactory(new PropertyValueFactory<>("passwd"));
+        colRol.setCellValueFactory(new PropertyValueFactory<>("rol"));
+        ObservableList<Logincentro> logins = FXCollections.observableArrayList(LoginModel.getLogin());
+        tablaLogin.setItems(logins);
 
-        // Initialize the table columns and other components here if needed
-
-         */
     }
 
 

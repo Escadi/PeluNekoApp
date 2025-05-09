@@ -1,39 +1,40 @@
 package View;
 
+import Controllers.ControllerVoluntario;
 import Entity.Voluntarioscentro;
+import Functions.Funcions;
 import Models.VoluntariosModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
-import java.io.IOException;
 
 public class VoluntariosList {
+    Funcions funcion = new Funcions();
     @FXML
     private TextField textFieldBuscarVoluntario;
     @FXML
     private TableView tablaVoluntario;
     @FXML
-    private TableColumn<Voluntarioscentro,String> colDniVoluntario;
+    private TableColumn<Voluntarioscentro, String> colDniVoluntario;
     @FXML
-    private TableColumn<Voluntarioscentro,String> colNombreVoluntario;
+    private TableColumn<Voluntarioscentro, String> colNombreVoluntario;
     @FXML
-    private TableColumn<Voluntarioscentro,String> colApellido1Voluntario;
+    private TableColumn<Voluntarioscentro, String> colApellido1Voluntario;
     @FXML
-    private TableColumn<Voluntarioscentro,String> colApellido2Voluntario;
+    private TableColumn<Voluntarioscentro, String> colApellido2Voluntario;
     @FXML
-    private TableColumn<Voluntarioscentro,String> colDireccionVoluntario;
+    private TableColumn<Voluntarioscentro, String> colDireccionVoluntario;
     @FXML
-    private TableColumn<Voluntarioscentro,String> colLocalidadVoluntario;
+    private TableColumn<Voluntarioscentro, String> colLocalidadVoluntario;
     @FXML
-    private TableColumn<Voluntarioscentro,String> colCPVoluntario;
+    private TableColumn<Voluntarioscentro, String> colCPVoluntario;
     @FXML
     private Button btnAtras;
     @FXML
@@ -56,6 +57,7 @@ public class VoluntariosList {
     private Button btnRegistrarVoluntario;
     @FXML
     private Button btnSalir;
+
     @FXML
     public void initialize() {
         colDniVoluntario.setCellValueFactory(new PropertyValueFactory<>("dNIVoluntario"));
@@ -67,9 +69,49 @@ public class VoluntariosList {
         colCPVoluntario.setCellValueFactory(new PropertyValueFactory<>("codigoPostalVoluntario"));
         ObservableList<Voluntarioscentro> voluntarioscentros = FXCollections.observableArrayList(VoluntariosModel.getVoluntarios());
         tablaVoluntario.setItems(voluntarioscentros);
+
+        /*
++-----------------------------------------------------------------------------------------------+
+|                                       FILTER USERS                                            |
++-----------------------------------------------------------------------------------------------+
+*/
+        FilteredList<Voluntarioscentro> filterVoluntarios = new FilteredList<>(voluntarioscentros, b -> true);
+        textFieldBuscarVoluntario.textProperty().addListener((observable, oldValue, newValue) -> {
+            filterVoluntarios.setPredicate(voluntario -> {
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                } else if (voluntario.getNombreVoluntario().toLowerCase().contains(newValue.toLowerCase())) {
+                    return true;
+                } else if (voluntario.getApellido1Voluntario().toLowerCase().contains(newValue.toLowerCase())) {
+                    return true;
+                } else if (voluntario.getDNIVoluntario().toLowerCase().contains(newValue.toLowerCase())) {
+                    return true;
+                }
+                return false;
+            });
+        });
+        SortedList<Voluntarioscentro> sortedData = new SortedList<>(filterVoluntarios);
+        sortedData.comparatorProperty().bind(tablaVoluntario.comparatorProperty());
+        tablaVoluntario.setItems(sortedData);
+
     }
 
-
+     /*
++-----------------------------------------------------------------------------------------------+
+|                                 CRUD FOR THE VOLUNTARIOS TABLE                                |
++-----------------------------------------------------------------------------------------------+
+*/
+    public void agregarVoluntario() {
+        ControllerVoluntario controllerVoluntario = new ControllerVoluntario();
+        controllerVoluntario.agregarVoluntarios(textFieldDNIVoluntario,
+                textFieldNombreVoluntario,
+                textFieldApellido1Voluntario,
+                textFieldApellido2Voluntario,
+                textFieldDireccionVoluntario,
+                textFieldLocalidadVoluntario,
+                textFieldCPVoluntario);
+        initialize();
+    }
 
 
     /*
@@ -77,19 +119,7 @@ public class VoluntariosList {
 |                                 BUTTONS FOR THE OPEN WINDOWS                                  |
 +-----------------------------------------------------------------------------------------------+
 */
-    public void abrirVentana(String fxmlPath, String titulo) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
-            Stage stage = new Stage();
-            stage.setScene(new Scene(loader.load()));
-            stage.setMaximized(true);
-            stage.initStyle(StageStyle.UTILITY);
-            stage.setTitle(titulo);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+
     public void registroVbox() {
         vboxRegistroVoluntarios.setVisible(true);
     }
@@ -97,8 +127,9 @@ public class VoluntariosList {
     public void salirVentanas() {
         vboxRegistroVoluntarios.setVisible(false);
     }
-    public void atrasVentanas(){
-        abrirVentana("/ViewFXML/MenuSelection.fxml", "Menu Principal");
+
+    public void atrasVentanas() {
+        funcion.abrirVentana("/ViewFXML/MenuSelection.fxml", "Menu Principal");
         ((Stage) btnAtras.getScene().getWindow()).close();
 
     }

@@ -1,5 +1,6 @@
 package View;
 
+import Functions.Funcions;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -11,7 +12,7 @@ import javafx.stage.StageStyle;
 import java.io.IOException;
 
 public class MainScreen {
-
+    Funcions funcions = new Funcions();
     @FXML
     private TextField textFieldRefugio;
     @FXML
@@ -34,22 +35,9 @@ public class MainScreen {
 +---------------------------------------------------------------+
 */
 
-    public void abrirVentana(String fxmlPath, String titulo) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
-            Stage stage = new Stage();
-            stage.setScene(new Scene(loader.load()));
-            stage.setMaximized(true);
-            stage.initStyle(StageStyle.UTILITY);
-            stage.setTitle(titulo);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     public void acceso() {
-        abrirVentana("/ViewFXML/MenuSelection.fxml", "Menu Principal");
+        funcions.abrirVentana("/ViewFXML/MenuSelection.fxml", "Menu Principal");
         ((Stage) btnAcceder.getScene().getWindow()).close();
     }
 

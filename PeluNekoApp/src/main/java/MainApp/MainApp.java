@@ -1,6 +1,6 @@
 package MainApp;
 
-import Conection.ConectionDB;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -10,6 +10,7 @@ import javafx.stage.StageStyle;
 import java.io.IOException;
 
 public class MainApp extends Application {
+
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("/ViewFXML/MainScreen.fxml"));
@@ -22,7 +23,6 @@ public class MainApp extends Application {
     }
 
     public static void main(String[] args) {
-        ConectionDB.openConn();
         launch();
     }
 }

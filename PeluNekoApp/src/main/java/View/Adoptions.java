@@ -1,7 +1,9 @@
 package View;
 
 import Entity.Adopcione;
-import Entity.Nuevosdueno;
+
+
+import Functions.Funcions;
 import Models.AdopcionesModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,6 +22,7 @@ import javafx.stage.StageStyle;
 import java.io.IOException;
 
 public class Adoptions {
+    Funcions funcions = new Funcions();
     @FXML
     private TextField textFieldBuscarAdopcion;
     @FXML
@@ -60,20 +63,6 @@ public class Adoptions {
 |                                 BUTTONS FOR THE OPEN WINDOWS                                  |
 +-----------------------------------------------------------------------------------------------+
 */
-    public void abrirVentana(String fxmlPath, String titulo) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
-            Stage stage = new Stage();
-            stage.setScene(new Scene(loader.load()));
-            stage.setMaximized(true);
-            stage.initStyle(StageStyle.UTILITY);
-            stage.setTitle(titulo);
-            stage.show();
-        } catch (IOException e) {
-            System.out.println("Error al abrir la ventana: " + e.getMessage());
-        }
-    }
-
     public void registroVbox() {
         vboxRegistroAdopciones.setVisible(true);
     }
@@ -83,7 +72,7 @@ public class Adoptions {
     }
 
     public void atrasVentanas() {
-        abrirVentana("/ViewFXML/MenuSelection.fxml", "Menu Principal");
+        funcions.abrirVentana("/ViewFXML/MenuSelection.fxml", "Menu Principal");
         ((Stage) btnAtras.getScene().getWindow()).close();
 
     }
