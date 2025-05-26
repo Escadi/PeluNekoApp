@@ -29,7 +29,7 @@
 
 
             <HBox alignment="CENTER" spacing="10.0">
-                <TextField fx:id="textFieldBuscarAdopcion" alignment="CENTER" prefHeight="45.0" prefWidth="300.0" promptText="Buscar Adopcion" stylesheets="@../Styles/TexfFieldStyles.css">
+                <TextField fx:id="textFieldBuscarAdopcion" alignment="CENTER" prefHeight="45.0" prefWidth="300.0" promptText="Buscar Adopcion" styleClass="textFieldBuscar" stylesheets="@../Styles/TexfFieldStyles.css">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
@@ -47,14 +47,27 @@
             <padding>
                <Insets left="80.0" />
             </padding>
+                <Button fx:id="btnCSV" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" styleClass="btnAdd" stylesheets="@../Styles/Buttons.css" text="Button">
+                    <graphic>
+                        <ImageView fitHeight="29.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../Images/Iconos/excel.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <HBox.margin>
+                        <Insets />
+                    </HBox.margin>
+                </Button>
             </HBox>
 
 
-            <TableView fx:id="tablaAdopciones" maxHeight="502.0" maxWidth="901.0" minHeight="500.0" minWidth="900.0" prefHeight="501.0" prefWidth="1000.0" translateX="17.0" VBox.vgrow="ALWAYS">
+            <TableView fx:id="tablaAdopciones" maxHeight="502.0" maxWidth="901.0" minHeight="500.0" minWidth="900.0" prefHeight="501.0" prefWidth="1000.0" stylesheets="@../Styles/TableViewStyle.css" translateX="17.0" VBox.vgrow="ALWAYS">
                 <columns>
-                    <TableColumn fx:id="colNumeroAnimal" prefWidth="180.0" text="Nº Animal" />
-                    <TableColumn fx:id="colDNIPropietario" prefWidth="411.0" text="Nuevo Propietario" />
-                    <TableColumn fx:id="colFechaAdopcion" minWidth="9.5999755859375" prefWidth="307.0" text="Fecha de Adopción" />
+               <TableColumn fx:id="colidAdopcion" prefWidth="96.0" text="Nº Adopcion" />
+                    <TableColumn fx:id="colNumeroAnimal" prefWidth="121.0" text="Nº Animal" />
+                    <TableColumn fx:id="colDNIPropietario" prefWidth="367.0" text="Nuevo Propietario" />
+                    <TableColumn fx:id="colFechaAdopcion" minWidth="9.5999755859375" prefWidth="310.0" text="Fecha de Adopción" />
 
                 </columns>
                 <VBox.margin>
@@ -73,8 +86,34 @@
             </graphic>
         </Button>
 
+        <VBox fx:id="vboxModificar" alignment="TOP_CENTER" prefWidth="200" spacing="2.0" styleClass="popupBox" stylesheets="@../Styles/Buttons.css" visible="false" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
 
-        <VBox fx:id="vboxRegistroAdopciones" alignment="TOP_CENTER" maxWidth="350.0" prefHeight="700.0" styleClass="vboxGeneral" stylesheets="@../Styles/vBoxStyles.css" visible="false">
+            <Button fx:id="btnModificar" mnemonicParsing="false" onAction="#getDataAdopcion" styleClass="btnModificarEliminar" stylesheets="@../Styles/Buttons.css">
+                <graphic>
+                    <ImageView fitHeight="26.0" fitWidth="95.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../Images/Iconos/ModificarIcono.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+
+            <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminarAdopcion" styleClass="btnModificarEliminar" stylesheets="@../Styles/Buttons.css">
+                <graphic>
+                    <ImageView fitHeight="26.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../Images/Iconos/EliminarLogo.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+            <padding>
+                <Insets left="10.0" right="10.0" />
+            </padding>
+        </VBox>
+
+
+        <VBox fx:id="vboxRegistroAdopciones" alignment="TOP_CENTER" maxWidth="350.0" prefHeight="399.0" prefWidth="341.0" styleClass="vboxGeneral" stylesheets="@../Styles/vBoxStyles.css" visible="false">
 
             <ImageView fitHeight="146.0" fitWidth="324.0" preserveRatio="true">
                 <image>
@@ -90,24 +129,91 @@
                     <Insets left="10.0" right="10.0" />
                 </VBox.margin></TextField>
 
-            <Label styleClass="labelVbox" stylesheets="@../Styles/TextStyles.css" text="DNI nuevo dueño" />
+            <Label styleClass="labelVbox" stylesheets="@../Styles/TextStyles.css" text="DNI Nuevo dueño" />
             <TextField fx:id="textFieldDniPropietarioAdopcion" prefHeight="35.0" prefWidth="317.0">
                 <VBox.margin>
                     <Insets left="10.0" right="10.0" />
                 </VBox.margin></TextField>
 
-            <Button fx:id="btnRegistrarAdopcion" mnemonicParsing="false" prefHeight="40.0" prefWidth="145.0" styleClass="btnRegistrar" stylesheets="@../Styles/Buttons.css" text="Registrar" translateX="-80.0" translateY="7.0">
+            <Button fx:id="btnRegistrarAdopcion" mnemonicParsing="false" onAction="#agregarAdopcion" prefHeight="40.0" prefWidth="145.0" styleClass="btnRegistrar" stylesheets="@../Styles/Buttons.css" text="ADOPTAR" translateX="-80.0" translateY="7.0">
                 <VBox.margin>
                     <Insets top="20.0" />
                 </VBox.margin>
             </Button>
 
-            <Button fx:id="btnSalir" onAction="#salirVentanas" prefHeight="40.0" prefWidth="145.0" styleClass="btnRegistrar" stylesheets="@../Styles/Buttons.css" text="Salir" translateX="80.0" translateY="-50.0">
+            <Button fx:id="btnSalir" onAction="#salirVentanas" prefHeight="40.0" prefWidth="145.0" styleClass="btnRegistrar" stylesheets="@../Styles/Buttons.css" text="SALIR" translateX="80.0" translateY="-50.0">
                 <VBox.margin>
                     <Insets top="20.0" />
                 </VBox.margin>
             </Button>
         </VBox>
+      <VBox fx:id="vboxModificarAdopciones" alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" maxWidth="350.0" prefHeight="502.0" prefWidth="341.0" styleClass="vboxGeneral" stylesheets="@../Styles/vBoxStyles.css" visible="false">
+         <children>
+            <ImageView fitHeight="146.0" fitWidth="324.0" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/BannerModificar.png" />
+               </image>
+            </ImageView>
+            <Line endX="100.0" startX="-220.0" stroke="#a63f22" strokeWidth="3.0" />
+            <Label layoutX="68.0" layoutY="161.0" styleClass="labelVbox" stylesheets="@../Styles/TextStyles.css" text="Codigo de Adopcion" />
+            <TextField fx:id="textFieldCodigoAdopcion" editable="false" layoutX="22.0" layoutY="191.0" prefHeight="35.0" prefWidth="317.0">
+               <VBox.margin>
+                  <Insets left="10.0" right="10.0" />
+               </VBox.margin></TextField>
+            <Label styleClass="labelVbox" stylesheets="@../Styles/TextStyles.css" text="Identificador del animal" />
+            <TextField fx:id="textFieldModificarIdAnimal" prefHeight="35.0" prefWidth="317.0">
+               <VBox.margin>
+                  <Insets left="10.0" right="10.0" />
+               </VBox.margin>
+            </TextField>
+            <Label styleClass="labelVbox" stylesheets="@../Styles/TextStyles.css" text="DNI nuevo dueño" />
+            <TextField fx:id="textFieldModificarDniPropietario" prefHeight="35.0" prefWidth="317.0">
+               <VBox.margin>
+                  <Insets left="10.0" right="10.0" />
+               </VBox.margin>
+            </TextField>
+            <Label layoutX="98.0" layoutY="291.0" styleClass="labelVbox" stylesheets="@../Styles/TextStyles.css" text="Fecha Adopción" />
+            <TextField fx:id="textFieldModificarFecha" editable="false" layoutX="22.0" layoutY="321.0" prefHeight="35.0" prefWidth="317.0">
+               <VBox.margin>
+                  <Insets left="10.0" right="10.0" />
+               </VBox.margin></TextField>
+            <Button fx:id="btnModificarAdopcion" mnemonicParsing="false" onAction="#modificarAdopcion" prefHeight="40.0" prefWidth="145.0" styleClass="btnRegistrar" stylesheets="@../Styles/Buttons.css" text="MODIFICAR" translateX="-80.0" translateY="7.0">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="btnSalir1" onAction="#salirVentanas" prefHeight="40.0" prefWidth="145.0" styleClass="btnRegistrar" stylesheets="@../Styles/Buttons.css" text="Salir" translateX="80.0" translateY="-50.0">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+        <HBox fx:id="hboxModificar" spacing="10.0" visible="false">
+            <children>
+
+                <Button fx:id="btnModifica" alignment="CENTER" mnemonicParsing="false" onAction="#getDataAdopcion" styleClass="btnRegistrar" stylesheets="@../Styles/Buttons.css" text="Modificar">
+                    <graphic>
+                        <ImageView fitHeight="26.0" fitWidth="95.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../Images/Iconos/ModificarIconoSolo.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+
+                <Button fx:id="btnElimina" alignment="CENTER" mnemonicParsing="false" onAction="#eliminarAdopcion" styleClass="btnRegistrar" stylesheets="@../Styles/Buttons.css" text="Eliminar">
+                    <graphic>
+                        <ImageView fitHeight="26.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../Images/Iconos/EliminarLogoSolo.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </children>
+        </HBox>
+
 
     </children>
 </AnchorPane>

@@ -28,20 +28,35 @@ public class VoluntariosModel {
         tx.commit();
         session.close();
     }
+
     public static void updateVoluntario(Voluntarioscentro voluntario) {
         try (Session session = HibernateUntil.getSessionFactory().openSession()) {
-            session.beginTransaction();
-            session.update(voluntario);
-            session.getTransaction().commit();
+            Transaction tx = session.beginTransaction();
+            Voluntarioscentro voluntarioUpdate = session.get(Voluntarioscentro.class, voluntario.getDNIVoluntario());
+            if (voluntarioUpdate != null) {
+                voluntarioUpdate.setNombreVoluntario(voluntario.getNombreVoluntario());
+                voluntarioUpdate.setApellido1Voluntario(voluntario.getApellido1Voluntario());
+                voluntarioUpdate.setApellido2Voluntario(voluntario.getApellido2Voluntario());
+                voluntarioUpdate.setDireccionVoluntario(voluntario.getDireccionVoluntario());
+                voluntarioUpdate.setLocalidadVoluntario(voluntario.getLocalidadVoluntario());
+                voluntarioUpdate.setCodigoPostalVoluntario(voluntario.getCodigoPostalVoluntario());
+                session.update(voluntarioUpdate);
+            }
+            tx.commit();
+            session.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    public static void deleteVoluntario(Voluntarioscentro voluntario) {
+    public static void deleteVoluntario(String dni) {
         try (Session session = HibernateUntil.getSessionFactory().openSession()) {
-            session.beginTransaction();
-            session.delete(voluntario);
-            session.getTransaction().commit();
+            Transaction tx = session.beginTransaction();
+            Voluntarioscentro voluntarioDelete = session.get(Voluntarioscentro.class, dni);
+            if (voluntarioDelete != null) {
+                session.delete(voluntarioDelete);
+            }
+            tx.commit();
+            session.close();
         } catch (Exception e) {
             e.printStackTrace();
         }

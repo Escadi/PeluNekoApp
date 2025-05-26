@@ -105,6 +105,18 @@
     -fx-scale-y: 1.2;
     -fx-scale-x: 1.2;
 }
+.btnModificarEliminar{
+    -fx-background-color: #8F7E74;
+    -fx-text-fill: Black;
+}
+.btnModificarEliminar:hover{
+    -fx-background-color: #8F7E74;
+    -fx-text-fill: White;
+}
+.btnModificarEliminar:pressed{
+    -fx-background-color: #8F7E74;
+    -fx-text-fill: #42433B;
+}
 
 
 

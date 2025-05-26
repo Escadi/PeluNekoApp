@@ -2,6 +2,7 @@ package Entity;
 
 import javax.persistence.*;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -31,6 +32,10 @@ public class Nuevosdueno {
 
     @OneToMany(mappedBy = "dni")
     private Set<Adopcione> adopciones = new LinkedHashSet<>();
+
+    @OneToMany(mappedBy = "dni" , fetch = FetchType.LAZY)
+    private List<Adopcione> adopcionesList;
+
     public Nuevosdueno() {}
 
     public Nuevosdueno(String dni, String nombre, String apellido1, String apellido2, String direccion, String localidad, String codigoPostal, Set<Adopcione> adopciones) {
@@ -42,6 +47,10 @@ public class Nuevosdueno {
         this.localidad = localidad;
         this.codigoPostal = codigoPostal;
         this.adopciones = adopciones;
+    }
+
+    public List<Adopcione> getAdopcionesList() {
+        return adopcionesList;
     }
 
     public String getDni() {

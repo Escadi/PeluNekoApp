@@ -6,42 +6,45 @@ import javax.persistence.*;
 @Table(name = "logincentros")
 public class Logincentro {
     @Id
-    @Column(name = "idVoluntario", nullable = false, length = 15)
-    private String idVoluntario;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idLogin", nullable = false)
+    private Integer id;
 
-    @MapsId
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "idVoluntario", nullable = false)
-    private Voluntarioscentro voluntarioscentro;
+    @OneToOne
+    @JoinColumn(name = "idVoluntario" ,nullable = false)
+    private Voluntarioscentro idVoluntario;
 
     @Column(name = "Passwd", nullable = false, length = 100)
     private String passwd;
 
     @Column(name = "Rol", nullable = false, length = 20)
     private String rol;
-    public Logincentro() {
-    }
-    public Logincentro(String idVoluntario, Voluntarioscentro voluntarioscentro, String passwd, String rol) {
-        this.idVoluntario = idVoluntario;
-        this.voluntarioscentro = voluntarioscentro;
-        this.passwd = passwd;
-        this.rol = rol;
+
+    public Integer getId() {
+        return id;
     }
 
-    public String getIdVoluntario() {
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Voluntarioscentro getIdVoluntario() {
         return idVoluntario;
     }
 
-    public void setIdVoluntario(String idVoluntario) {
+    public String getVoluntarioid() {
+        return idVoluntario.getDNIVoluntario();
+    }
+
+    public void setIdVoluntario(Voluntarioscentro idVoluntario) {
         this.idVoluntario = idVoluntario;
     }
 
-    public Voluntarioscentro getVoluntarioscentro() {
-        return voluntarioscentro;
-    }
 
-    public void setVoluntarioscentro(Voluntarioscentro voluntarioscentro) {
-        this.voluntarioscentro = voluntarioscentro;
+    public void setIdVoluntarioString(String dni) {
+        Voluntarioscentro voluntario = new Voluntarioscentro();
+        voluntario.setDNIVoluntario(dni);
+        this.idVoluntario = voluntario;
     }
 
     public String getPasswd() {

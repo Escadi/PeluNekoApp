@@ -1,16 +1,17 @@
 package View;
 
+import Controllers.ControllerMenu;
+import Functions.Funcions;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
-import java.io.IOException;
 
 public class MenuSelection {
+    Funcions funcion = new Funcions();
+    ControllerMenu controllerMenu = new ControllerMenu();
     @FXML
     private Button btnAnimales;
     @FXML
@@ -19,17 +20,21 @@ public class MenuSelection {
     private Button btnVoluntarios;
     @FXML
     private Button btnAdopciones;
-
+    @FXML
+    private Button btnLoginVoluntarios;
+    @FXML
+    private HBox hboxBotonesVoluntarios;
+    @FXML
+    private VBox vboxMain;
 
 
     public void initialize() {
-
+        if (vboxMain != null) {
+            vboxMain.setFillWidth(true);
+        }
+        // Hacemos visible el HBox de los botones de voluntarios y login si el rol es Administrador
+        hboxBotonesVoluntarios.setVisible(controllerMenu.ventanas());
     }
-
-
-
-
-
 
 
     /*
@@ -38,47 +43,34 @@ public class MenuSelection {
 +---------------------------------------------------------------+
 */
 
-    public void abrirVentana(String fxmlPath, String titulo) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
-            Parent root = loader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.setMaximized(true);
-            stage.initStyle(StageStyle.UTILITY);
-            stage.setTitle(titulo);
-            stage.show();
-        } catch (IOException e) {
-            System.out.println("Error al cargar la ventana: " + e.getMessage());
-        }
-    }
     public void ventanaAnimales() {
-        abrirVentana("/ViewFXML/AnimalList.fxml", "Animales");
+        funcion.abrirVentana("/ViewFXML/AnimalList.fxml", "Animales");
         ((Stage) btnAnimales.getScene().getWindow()).close();
     }
+
     public void ventanaNuevos() {
-        abrirVentana("/ViewFXML/NewOwners.fxml", "Nuevos Dueños");
+        funcion.abrirVentana("/ViewFXML/NewOwners.fxml", "Nuevos Dueños");
         ((Stage) btnNuevos.getScene().getWindow()).close();
 
     }
-    public void ventanaVoluntarios() {
-        abrirVentana("/ViewFXML/VoluntariosList.fxml", "Voluntarios");
 
+    public void ventanaVoluntarios() {
+        funcion.abrirVentana("/ViewFXML/VoluntariosList.fxml", "Voluntarios");
         ((Stage) btnVoluntarios.getScene().getWindow()).close();
 
     }
+
     public void ventanaAdopciones() {
-        abrirVentana("/ViewFXML/Adoptions.fxml", "Adopciones");
+        funcion.abrirVentana("/ViewFXML/Adoptions.fxml", "Adopciones");
         ((Stage) btnAdopciones.getScene().getWindow()).close();
 
     }
+
     public void ventanaLogin() {
-        abrirVentana("/ViewFXML/LoginVoluntarios.fxml", "Login Voluntarios");
-        ((Stage) btnAdopciones.getScene().getWindow()).close();
+        funcion.abrirVentana("/ViewFXML/LoginVoluntarios.fxml", "Login Voluntarios");
+        ((Stage) btnLoginVoluntarios.getScene().getWindow()).close();
 
     }
-
-
 
 
 }

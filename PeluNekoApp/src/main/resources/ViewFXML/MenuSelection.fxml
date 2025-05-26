@@ -22,7 +22,7 @@
          <Line endX="1183.0" startX="128.5" stroke="#a63f22" strokeWidth="3.0" />
          <HBox alignment="CENTER" prefHeight="307.0" prefWidth="1129.0" spacing="60.0">
             <children>
-               <Button fx:id="btnAnimales" onAction="#ventanaAnimales" contentDisplay="TOP" mnemonicParsing="false"  prefHeight="150.0" prefWidth="500.0" styleClass="btnMenuStickers" stylesheets="@../Styles/Buttons.css" text="Lista de Animales">
+               <Button fx:id="btnAnimales" contentDisplay="TOP" mnemonicParsing="false" onAction="#ventanaAnimales" prefHeight="150.0" prefWidth="500.0" styleClass="btnMenuStickers" stylesheets="@../Styles/Buttons.css" text="Lista de Animales">
                   <graphic>
                      <ImageView fitHeight="150.0" fitWidth="200.0" preserveRatio="true">
                         <image>
@@ -32,7 +32,7 @@
                   </graphic>
                </Button>
       
-               <Button fx:id="btnAdopciones" onAction="#ventanaAdopciones" contentDisplay="TOP" mnemonicParsing="false" prefHeight="150.0" prefWidth="500.0" styleClass="btnMenuStickers" stylesheets="@../Styles/Buttons.css" text="Adopciones">
+               <Button fx:id="btnAdopciones" contentDisplay="TOP" mnemonicParsing="false" onAction="#ventanaAdopciones" prefHeight="150.0" prefWidth="500.0" styleClass="btnMenuStickers" stylesheets="@../Styles/Buttons.css" text="Adopciones">
                   <graphic>
                      <ImageView fitHeight="150.0" fitWidth="200.0" preserveRatio="true">
                         <image>
@@ -42,7 +42,7 @@
                   </graphic>
                </Button>
       
-               <Button fx:id="btnNuevos" onAction="#ventanaNuevos" contentDisplay="TOP" mnemonicParsing="false" prefHeight="150.0" prefWidth="500.0" styleClass="btnMenuStickers" stylesheets="@../Styles/Buttons.css" text="Nuevos Dueños">
+               <Button fx:id="btnNuevos" contentDisplay="TOP" mnemonicParsing="false" onAction="#ventanaNuevos" prefHeight="150.0" prefWidth="500.0" styleClass="btnMenuStickers" stylesheets="@../Styles/Buttons.css" text="Nuevos Dueños">
                   <graphic>
                      <ImageView fitHeight="150.0" fitWidth="200.0" preserveRatio="true">
                         <image>
@@ -54,9 +54,9 @@
 
             </children>
          </HBox>
-         <HBox alignment="CENTER" prefHeight="307.0" prefWidth="1129.0" spacing="60.0">
+         <HBox fx:id="hboxBotonesVoluntarios" alignment="CENTER" prefHeight="307.0" prefWidth="1129.0" spacing="60.0">
             <children>
-               <Button fx:id="btnVoluntarios" onAction="#ventanaVoluntarios" contentDisplay="TOP" mnemonicParsing="false" prefHeight="150.0" prefWidth="500.0" styleClass="btnMenuStickers" stylesheets="@../Styles/Buttons.css" text="Voluntarios">
+               <Button fx:id="btnVoluntarios" contentDisplay="TOP" mnemonicParsing="false" onAction="#ventanaVoluntarios" prefHeight="150.0" prefWidth="500.0" styleClass="btnMenuStickers" stylesheets="@../Styles/Buttons.css" text="Voluntarios">
                   <graphic>
                      <ImageView fitHeight="150.0" fitWidth="200.0" preserveRatio="true">
                         <image>
@@ -65,7 +65,7 @@
                      </ImageView>
                   </graphic>
                </Button>
-               <Button fx:id="btnLoginVoluntarios" onAction="#ventanaLogin" contentDisplay="TOP" mnemonicParsing="false" prefHeight="150.0" prefWidth="500.0" styleClass="btnMenuStickers" stylesheets="@../Styles/Buttons.css" text="Login Voluntarios">
+               <Button fx:id="btnLoginVoluntarios" contentDisplay="TOP" mnemonicParsing="false" onAction="#ventanaLogin" prefHeight="150.0" prefWidth="500.0" styleClass="btnMenuStickers" stylesheets="@../Styles/Buttons.css" text="Login Voluntarios">
                   <graphic>
                      <ImageView fitHeight="150.0" fitWidth="200.0" preserveRatio="true">
                         <image>

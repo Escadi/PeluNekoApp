@@ -47,4 +47,15 @@ public class AnimalModel {
         tx.commit();
         session.close();
     }
+
+    public static void deleteAnimal(int id) {
+        Session session = HibernateUntil.getSessionFactory().openSession();
+        Transaction tx = session.beginTransaction();
+        Animale animal = session.get(Animale.class, id);
+        if (animal != null) {
+            session.delete(animal);
+        }
+        tx.commit();
+        session.close();
+    }
 }

@@ -6,15 +6,15 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "adopciones")
 public class Adopcione {
-    @EmbeddedId
-    private AdopcioneId id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idAdopcion", nullable = false)
+    private Integer id;
 
-    @MapsId("idAnimal")
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "idAnimal", nullable = false)
     private Animale idAnimal;
 
-    @MapsId("dni")
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "DNI", nullable = false)
     private Nuevosdueno dni;
@@ -22,22 +22,11 @@ public class Adopcione {
     @Column(name = "FechaAdopcion")
     private LocalDate fechaAdopcion;
 
-    public Adopcione() {
-    }
-
-    public Adopcione(AdopcioneId id, Animale idAnimal, Nuevosdueno dni, LocalDate fechaAdopcion) {
-        this.id = id;
-        this.idAnimal = idAnimal;
-        this.dni = dni;
-        this.fechaAdopcion = fechaAdopcion;
-
-    }
-
-    public AdopcioneId getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(AdopcioneId id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -45,21 +34,34 @@ public class Adopcione {
         return idAnimal;
     }
 
+    public String getDniPropietario() {
+        return dni != null ? dni.getDni() + " - " +
+                dni.getNombre() + " " + dni.getApellido1() + " " + dni.getApellido2() : "";
+    }
+    public Integer getIdAdopcionAnimal() {
+        return idAnimal != null ? idAnimal.getId() : null;
+    }
+    public void setDniString(String DNI) {
+        if (this.dni == null) {
+            this.dni = new Nuevosdueno();
+        }
+        this.dni.setDni(DNI);
+    }
+    public String getDniString() {
+        return dni != null ? dni.getDni() : "";
+    }
+    public void setIdAdopcionAnimal(Integer idAdopcionAnimal) {
+        if(this.idAnimal == null){
+            this.idAnimal = new Animale();
+        }
+        this.idAnimal.setId(idAdopcionAnimal);
+    }
     public void setIdAnimal(Animale idAnimal) {
         this.idAnimal = idAnimal;
     }
 
-    public Integer getIdAdopcionAnimal() {
-        return id != null ? id.getIdAnimal() : null;
-    }
-
     public Nuevosdueno getDni() {
         return dni;
-    }
-
-    public String getDniPropietario() {
-        return dni != null ? dni.getDni() + "-" +
-                dni.getNombre() + " " + dni.getApellido1() + " " + dni.getApellido2() : "";
     }
 
     public void setDni(Nuevosdueno dni) {

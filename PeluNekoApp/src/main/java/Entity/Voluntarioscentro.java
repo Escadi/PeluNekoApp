@@ -32,7 +32,7 @@ public class Voluntarioscentro {
     @OneToMany(mappedBy = "dNIVoluntario")
     private Set<Animale> animales = new LinkedHashSet<>();
 
-    @OneToOne(mappedBy = "voluntarioscentro")
+    @OneToOne(mappedBy = "idVoluntario")
     private Logincentro logincentro;
 
     public Voluntarioscentro() {

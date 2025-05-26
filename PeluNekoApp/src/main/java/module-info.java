@@ -14,6 +14,10 @@ module PeluNekoApp {
     requires java.persistence;
     requires java.naming;
     requires org.hibernate.orm.core;
+    requires com.google.protobuf;
+    requires org.slf4j;
+    requires org.jboss.jandex;
+    requires jbcrypt;
 
     opens View to javafx.fxml, org.junit.jupiter.api;
     opens MainApp to javafx.fxml, org.junit.jupiter.api;

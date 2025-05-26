@@ -12,3 +12,8 @@
     -fx-border-color: black;
     -fx-border-width: 2px;
 }
+.vboxGeneralImagen{
+    -fx-background-color: #DAC8C0;
+    -fx-border-color: #a63f22;
+    -fx-border-width: 3px;
+}

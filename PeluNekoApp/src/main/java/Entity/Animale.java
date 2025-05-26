@@ -25,8 +25,8 @@ public class Animale {
     @Column(name = "Estado", length = 50)
     private String estado;
 
-    @Column(name = "imagen")
-    private String imagen;
+    @Column(name = "imagen", columnDefinition = "LONGBLOB")
+    private byte[] imagen;
 
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "idRaza", nullable = false)
@@ -42,7 +42,8 @@ public class Animale {
     public Animale() {
     }
 
-    public Animale(String tipo, String text, String  peso, String estado, String imagen, int raza, String dniVoluntario) {
+    public Animale(Integer id, String tipoAnimal, String nombre, String peso, String estado, byte[] imagen, Raza idRaza, Voluntarioscentro dNIVoluntario) {
+        this.id = id;
         this.tipoAnimal = tipoAnimal;
         this.nombre = nombre;
         this.peso = peso;
@@ -51,7 +52,6 @@ public class Animale {
         this.idRaza = idRaza;
         this.dNIVoluntario = dNIVoluntario;
     }
-
 
     public Integer getId() {
         return id;
@@ -93,11 +93,11 @@ public class Animale {
         this.estado = estado;
     }
 
-    public String getImagen() {
+    public byte[] getImagen() {
         return imagen;
     }
 
-    public void setImagen(String imagen) {
+    public void setImagen(byte[] imagen) {
         this.imagen = imagen;
     }
 
@@ -115,6 +115,10 @@ public class Animale {
 
     public Voluntarioscentro getDNIVoluntario() {
         return dNIVoluntario;
+    }
+
+    public String getDNIVoluntarioString() {
+        return dNIVoluntario != null ? dNIVoluntario.getDNIVoluntario() : "";
     }
 
     public String getDniVoluntario() {

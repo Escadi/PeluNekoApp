@@ -19,6 +19,16 @@
     -fx-text-fill: #8F7E74;
     -fx-font-weight: bold;
 }
+.JoinSessionLabel{
+    -fx-font-size: 12px;
+    -fx-text-fill: #8F7E74;
+    -fx-font-weight: bold;
+}
+.JoinSessionLabel:hover{
+    -fx-text-fill: #a63f22;
+    -fx-font-weight: bold;
+    -fx-underline: true;
+}
 /*
 +---------------------------------------------------------------+
 |                          List Screens                         |

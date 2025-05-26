@@ -1,47 +1,39 @@
 package View;
 
+import Controllers.ControllerMenu;
 import Functions.Funcions;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
+import javafx.scene.layout.VBox;
 
-import java.io.IOException;
 
 public class MainScreen {
-    Funcions funcions = new Funcions();
+    Funcions funcion = new Funcions();
+    ControllerMenu controllerMenu = new ControllerMenu();
     @FXML
-    private TextField textFieldRefugio;
+    private TextField textFieldVoluntario;
     @FXML
     private TextField textFieldPassword;
     @FXML
     private Button btnAcceder;
+    @FXML
+    private VBox vboxMain;
 
 
-    public MainScreen() {}
-
+    public MainScreen() {
+    }
 
 
     public void initialize() {
-
+        if (vboxMain != null) {
+            vboxMain.setFillWidth(true);
+        }
     }
 
-    /*
-+---------------------------------------------------------------+
-|                   Access to FXML Whit Buttons                 |
-+---------------------------------------------------------------+
-*/
-
-
-    public void acceso() {
-        funcions.abrirVentana("/ViewFXML/MenuSelection.fxml", "Menu Principal");
-        ((Stage) btnAcceder.getScene().getWindow()).close();
+    public void inicio() {
+        //controllerMenu.showDni(textFieldVoluntario.getText(), textFieldPassword.getText());
+        funcion.abrirVentana("/ViewFXML/MenuSelection.fxml", "Menu Principal");
     }
-
-
-
 
 }

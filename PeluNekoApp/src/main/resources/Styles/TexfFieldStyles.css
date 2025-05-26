@@ -1,0 +1,16 @@
+.textFieldBuscar {
+    -fx-background-color: #f0f0f0;
+    -fx-border-color: #a63f22;
+    -fx-border-radius: 8px;
+    -fx-border-width: 2px;
+}
+
+.textFieldLoginPrincipal {
+    -fx-background-color: #f0f0f0;
+    -fx-border-color: #a63f22;
+    -fx-border-radius: 8px;
+    -fx-border-width: 2px;
+    -fx-text-fill: Black;
+    -fx-font-size: 14px;
+}
+
