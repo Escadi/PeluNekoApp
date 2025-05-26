@@ -1,28 +1,29 @@
 <p align="center">
-  <img src="Worktopia_cod/src/main/resources/Imagenes/ImagenPrincipalLogin.png" alt="Worktopia Coworking" width="1000"/>
+  <img src= "PeluNekoApp/src/main/resources/Images/PelunekoLogoLetras.png" alt="Peluneko Logo" width="1000"/>
 </p>
-
-
-<h1>Proyecto Realizado por #Escadi y #Denox74</h1>  
-Aplicación de escritorio desarrollada con JavaFX para la gestión de reservas de mesas de una oficina coworking.  
-Permitiendo crear las reservas de los clientes recibiendo un Email de la reserva, juntos con sus registros, viendo visualmente si los horarios corespondiente a esa mesa que se quiere reservar esta ocupada o no y generando sus facturas correpondientes, pudiendo imprimir la misma.
+  
+Aplicación de escritorio desarrollada con JavaFX para la gestión de un refugio de animales , tanto su registro de animales abandonados
+como los nuevos dueño y los voluntarios del centro.
+Para entrar en la aplicacion seria necesaria un inicio de sesión y segun el rol (Administrador , voluntario) para ver unos botones de
+los voluntarios del centro y el login de los mismos (Solo rol de administrador).
+Tendria una pestaña para las adopciones de los animales relacionadas con los nuevos dueños para tener un registro de todas las adopciones
+realizadas.
 
 ---
 
 ## 🛠️ Tecnologías utilizadas
 
 - **JavaFX** – Interfaz gráfica moderna para aplicaciones de escritorio.
-- **MySQL** – Base de datos relacional para el almacenamiento estructurado de datos.
+- **MySQL** – Base de datos relacional para el almacenamiento estructurado de datos , realizado de forma local
+  con la posibilidad de realizarlo de forma online.
 - **IntelliJ IDEA** – Entorno de desarrollo utilizado para la construcción del proyecto.
-
 ---
 
 ## 📦 Funcionalidades principales
 
-- 📋 Registro y modificación de **Clientes** disponibles para adopción.
-- 👥 Gestión de **Reservas**.
-- 🏠 Administración de **Facturas y sus pagos**.
-- 🔍 Búsqueda y filtrado de datos para facilitar el trabajo del personal.
+- 📋 Registro , modificación y eliminacion de **Voluntarios y nuevos dueños**.
+- 👥 Gestión de **Adopciones realizadas**.
+- 🔍 Búsqueda y filtrado de datos para facilitar el trabajo de los **voluntarios**.
 
 ---
 
