@@ -1,5 +1,5 @@
 <p align="center">
-  <img src= "PeluNekoApp/src/main/resources/Images/PelunekoLogoLetras.png" alt="Peluneko Logo" width="1000"/>
+  <img src= "PeluNekoApp/src/main/resources/Images/PelunekoLogoLetras.png" alt="Peluneko Logo" width="200"/>
 </p>
   
 Aplicación de escritorio desarrollada con JavaFX para la gestión de un refugio de animales , tanto su registro de animales abandonados
