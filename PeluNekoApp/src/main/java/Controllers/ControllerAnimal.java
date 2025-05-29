@@ -5,12 +5,11 @@ import Entity.Raza;
 import Entity.Voluntarioscentro;
 import Functions.Funcions;
 import Models.AnimalModel;
+import Models.PropietariosModel;
 import Models.RazasModel;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.ComboBox;
 
-import java.awt.*;
 import java.util.Optional;
 
 public class ControllerAnimal {
@@ -73,7 +72,17 @@ public class ControllerAnimal {
         }
     }
     public void eliminarAnimales(int id) {
-        AnimalModel.deleteAnimal(id);
-        funcions.alertInfo("Registro", "El animal con identificador " + id + "se ha eliminado correctamente");
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setContentText("Quiere eliminar el animal con ID : " + id);
+        ButtonType si = new ButtonType("Sí");
+        ButtonType no = new ButtonType("No");
+        alert.getButtonTypes().setAll(si, no);
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent() && result.get() == si) {
+            AnimalModel.deleteAnimal(id);
+            funcions.alertInfo("Eliminar", "El Animal : " + id + " se ha eliminado correctamente");
+        } else if (result.isPresent() && result.get() == no) {
+            funcions.alertInfo("Registro", "El Animal : " + id + " no se ha eliminado");
+        }
     }
 }

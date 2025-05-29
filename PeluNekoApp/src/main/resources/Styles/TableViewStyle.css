@@ -1,4 +1,8 @@
+
 .table-view {
+    -fx-font-family: Tahoma;
+    -fx-font-weight: bold;
+    -fx-text-fill: #6c2c1b;
     -fx-background-color: transparent;
     -fx-border-color: #a63f22;
     -fx-border-width: 2px;

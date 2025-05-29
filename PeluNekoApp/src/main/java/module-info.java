@@ -21,7 +21,7 @@ module PeluNekoApp {
 
     opens View to javafx.fxml, org.junit.jupiter.api;
     opens MainApp to javafx.fxml, org.junit.jupiter.api;
-    opens ViewFXML to javafx.fxml, org.junit.jupiter.api;
+    opens ViewFXML to javafx.fxml, org.junit.jupiter.api, javafx.controls;
     opens Entity to org.hibernate.orm.core, javafx.base, javafx.fxml;
 
 

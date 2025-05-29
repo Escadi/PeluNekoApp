@@ -16,9 +16,9 @@ public class MainScreen {
     @FXML
     private TextField textFieldPassword;
     @FXML
-    private Button btnAcceder;
-    @FXML
     private VBox vboxMain;
+    @FXML
+    private Button btnAcceder;
 
 
     public MainScreen() {
@@ -29,11 +29,11 @@ public class MainScreen {
         if (vboxMain != null) {
             vboxMain.setFillWidth(true);
         }
+        btnAcceder.setDefaultButton(true);
     }
 
     public void inicio() {
-        //controllerMenu.showDni(textFieldVoluntario.getText(), textFieldPassword.getText());
-        funcion.abrirVentana("/ViewFXML/MenuSelection.fxml", "Menu Principal");
+        controllerMenu.showDni(textFieldVoluntario.getText(), textFieldPassword.getText());
     }
 
 }

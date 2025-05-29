@@ -3,28 +3,30 @@
 |                          Main Screens                         |
 +---------------------------------------------------------------+
 */
-
-.mainLabel{
+#root {
+    -fx-font-family: Tahoma;
+}
+.mainLabel {
     -fx-font-size: 40px;
     -fx-text-fill: #8F7E74;
     -fx-font-weight: bold;
 }
-.mainLabelSecondary{
+.mainLabelSecondary {
     -fx-font-size: 20px;
     -fx-text-fill: #8F7E74;
     -fx-font-weight: bold;
 }
-.creditsLabel{
+.creditsLabel {
     -fx-font-size: 12px;
     -fx-text-fill: #8F7E74;
     -fx-font-weight: bold;
 }
-.JoinSessionLabel{
+.JoinSessionLabel {
     -fx-font-size: 12px;
     -fx-text-fill: #8F7E74;
     -fx-font-weight: bold;
 }
-.JoinSessionLabel:hover{
+.JoinSessionLabel:hover {
     -fx-text-fill: #a63f22;
     -fx-font-weight: bold;
     -fx-underline: true;

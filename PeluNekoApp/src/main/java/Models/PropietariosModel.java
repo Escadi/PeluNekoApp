@@ -63,4 +63,5 @@ public class PropietariosModel {
             e.printStackTrace();
         }
     }
+
 }

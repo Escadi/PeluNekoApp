@@ -3,7 +3,7 @@ package View;
 import Entity.Adopcione;
 
 
-import Entity.Animale;
+import Functions.FuncionCSV;
 import Functions.Funcions;
 import Models.AdopcionesModel;
 import Controllers.*;
@@ -21,7 +21,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
-import Entity.*;
 
 public class Adoptions {
     private double xOffset = 0;
@@ -52,8 +51,6 @@ public class Adoptions {
     private TextField textFieldCodigoAdopcion;
     @FXML
     private TextField textFieldModificarFecha;
-    @FXML
-    private Button btnModificarAdopcion;
     @FXML
     private TableView tablaAdopciones;
     @FXML
@@ -197,6 +194,15 @@ public class Adoptions {
             funcions.alertInfo("Error", "No se ha seleccionado ninguna adopcion");
         }
 
+    }
+    /*
+   +-----------------------------------------------------------------------------------------------+
+   |                                       EXPORT CSV ADOPTION                                     |
+   +-----------------------------------------------------------------------------------------------+
+   */
+    public void exportarCSV() {
+        FuncionCSV funcionCSV = new FuncionCSV();
+        funcionCSV.adopcionesCSV();
     }
 
 

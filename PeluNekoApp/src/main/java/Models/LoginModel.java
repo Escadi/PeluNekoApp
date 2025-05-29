@@ -67,12 +67,10 @@ public class LoginModel {
 
         try (Session session = HibernateUntil.getSessionFactory().openSession()) {
             Voluntarioscentro voluntario = session.get(Voluntarioscentro.class, dni);
-
             if (voluntario == null) {
                 System.err.println("No se encontró voluntario con DNI: " + dni);
                 return null;
             }
-
             Logincentro logincentro = session.createQuery(
                             "FROM Logincentro WHERE idVoluntario = :voluntario", Logincentro.class)
                     .setParameter("voluntario", voluntario)

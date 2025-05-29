@@ -55,7 +55,7 @@ public class LoginVoluntarios {
     @FXML
     private VBox vboxModificarLogin;
     @FXML
-    private ComboBox comboBoxModificarVoluntario;
+    private TextField textFieldModificarVoluntario;
     @FXML
     private ComboBox comboBoxModificarRol;
     @FXML
@@ -162,7 +162,6 @@ public class LoginVoluntarios {
             voluntarios.add(v.getDNIVoluntario());
         }
         comboBoxVoluntario.setItems(voluntarios);
-        comboBoxModificarVoluntario.setItems(voluntarios);
 
     }
 
@@ -174,7 +173,7 @@ public class LoginVoluntarios {
     */
     public void getDataLogin() {
         Logincentro logincentro = (Logincentro) tablaLogin.getSelectionModel().getSelectedItem();
-        comboBoxModificarVoluntario.setValue(logincentro.getVoluntarioid());
+        textFieldModificarVoluntario.setText(logincentro.getVoluntarioid());
         textFieldModificarPassword.setText(logincentro.getPasswd());
         comboBoxModificarRol.setValue(logincentro.getRol());
         vboxModificarLogin.setVisible(true);
@@ -199,7 +198,7 @@ public class LoginVoluntarios {
 
     public void updateLogin() {
         int id = ((Logincentro) tablaLogin.getSelectionModel().getSelectedItem()).getId();
-        String dni = (String) comboBoxModificarVoluntario.getSelectionModel().getSelectedItem();
+        String dni = textFieldModificarVoluntario.getText();
         String rol = (String) comboBoxModificarRol.getSelectionModel().getSelectedItem();
         String password = textFieldModificarPassword.getText();
         controllerLogin.actualizarUsuarioLogin(

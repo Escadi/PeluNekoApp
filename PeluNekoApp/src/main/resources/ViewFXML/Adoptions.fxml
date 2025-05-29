@@ -31,7 +31,7 @@
             <HBox alignment="CENTER" spacing="10.0">
                 <TextField fx:id="textFieldBuscarAdopcion" alignment="CENTER" prefHeight="45.0" prefWidth="300.0" promptText="Buscar Adopcion" styleClass="textFieldBuscar" stylesheets="@../Styles/TexfFieldStyles.css">
                     <font>
-                        <Font name="System Bold" size="14.0" />
+                        <Font name="Tahoma Bold" size="14.0" />
                     </font>
                 </TextField>
 
@@ -44,10 +44,7 @@
                         </ImageView>
                     </graphic>
                 </Button>
-            <padding>
-               <Insets left="80.0" />
-            </padding>
-                <Button fx:id="btnCSV" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" styleClass="btnAdd" stylesheets="@../Styles/Buttons.css" text="Button">
+                <Button fx:id="btnCSV" onAction="#exportarCSV" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" styleClass="btnAdd" stylesheets="@../Styles/Buttons.css" text="Button">
                     <graphic>
                         <ImageView fitHeight="29.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -59,6 +56,9 @@
                         <Insets />
                     </HBox.margin>
                 </Button>
+            <padding>
+               <Insets left="80.0" />
+            </padding>
             </HBox>
 
 

@@ -1,8 +1,10 @@
 package Functions;
 
+import Entity.Adopcione;
 import Entity.Animale;
 import Entity.Nuevosdueno;
 import Entity.Voluntarioscentro;
+import Models.AdopcionesModel;
 import Models.AnimalModel;
 import Models.PropietariosModel;
 import Models.VoluntariosModel;
@@ -73,6 +75,24 @@ public class FuncionCSV {
                                 voluntario.getDireccionVoluntario() + ";" +
                                 voluntario.getLocalidadVoluntario() + ";" +
                                 voluntario.getCodigoPostalVoluntario() + "\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        funcions.alertInfo("Exportar CSV", "El archivo CSV se ha exportado en : \n " + archivo.getAbsolutePath());
+    }
+    public void adopcionesCSV() {
+        List<Adopcione> adopcion = AdopcionesModel.getAdopciones();
+        String descarga = System.getProperty("user.home") + File.separator + "Downloads";
+        File archivo = new File(descarga, "AdopcionesRegistradas.csv");
+        try (BufferedWriter ficheroCSVadopciones = new BufferedWriter(new FileWriter(archivo))) {
+            ficheroCSVadopciones.write("ID; Identificador Animal; DNI nuevo dueño; Fecha adopción \n");
+            for (Adopcione adopciones : adopcion) {
+                ficheroCSVadopciones.write(
+                                adopciones.getId() + ";" +
+                                adopciones.getIdAnimal() + ";" +
+                                adopciones.getDniPropietario() + ";" +
+                                adopciones.getFechaAdopcion() + "\n");
             }
         } catch (IOException e) {
             e.printStackTrace();

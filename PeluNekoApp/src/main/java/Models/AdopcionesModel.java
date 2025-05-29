@@ -6,7 +6,6 @@ import Entity.Nuevosdueno;
 import Hibernate.HibernateUntil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-
 import java.time.LocalDate;
 import java.util.List;
 
@@ -69,6 +68,18 @@ public class AdopcionesModel {
         try (Session session = HibernateUntil.getSessionFactory().openSession()) {
             Nuevosdueno dueno = session.get(Nuevosdueno.class, dni);
             return dueno != null && dueno.getAdopcionesList() != null && !dueno.getAdopcionesList().isEmpty();
+        }
+    }
+    public static boolean existeAdopcionParaAnimal(int idAnimal) {
+        try (Session session = HibernateUntil.getSessionFactory().openSession()) {
+            Long count = session.createQuery(
+                            "SELECT COUNT(a) FROM Adopcione a WHERE a.idAnimal.id = :idAnimal", Long.class)
+                    .setParameter("idAnimal", idAnimal)
+                    .uniqueResult();
+            return count != null && count > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
         }
     }
 }

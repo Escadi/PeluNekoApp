@@ -31,7 +31,7 @@
             <HBox alignment="CENTER" spacing="10.0">
                 <TextField fx:id="textFieldBuscarUsuario" alignment="CENTER" prefHeight="45.0" prefWidth="300.0" promptText="Buscar Usuario" styleClass="textFieldBuscar" stylesheets="@../Styles/TexfFieldStyles.css">
                     <font>
-                        <Font name="System Bold" size="14.0" />
+                        <Font name="Tahoma Bold" size="14.0" />
                     </font>
                 </TextField>
 
@@ -116,14 +116,18 @@
 
             <ImageView fitHeight="146.0" fitWidth="324.0" preserveRatio="true">
                 <image>
-                    <Image url="@../Images/BannerInicioSesion.png" />
+                    <Image url="@../Images/BannerModificar.png" />
                 </image>
             </ImageView>
 
             <Line endX="100.0" startX="-220.0" stroke="#a63f22" strokeWidth="3.0" />
 
             <Label styleClass="labelVbox" stylesheets="@../Styles/TextStyles.css" text="DNI voluntario" />
-            <ComboBox fx:id="comboBoxModificarVoluntario" editable="true" prefHeight="35.0" prefWidth="317.0" />
+         <TextField fx:id="textFieldModificarVoluntario" disable="true" editable="false" prefHeight="35.0" prefWidth="317.0">
+            <VBox.margin>
+               <Insets left="10.0" right="10.0" />
+            </VBox.margin>
+         </TextField>
             <Label layoutX="128.0" layoutY="227.0" styleClass="labelVbox" stylesheets="@../Styles/TextStyles.css" text="Rol" />
             <ComboBox fx:id="comboBoxModificarRol" editable="true" prefHeight="35.0" prefWidth="317.0">
                 <VBox.margin>

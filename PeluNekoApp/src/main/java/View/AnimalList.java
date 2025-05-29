@@ -2,11 +2,13 @@ package View;
 
 import Controllers.ControllerAnimal;
 import Entity.Animale;
+import Functions.FicheroNombre;
 import Functions.FuncionCSV;
 import Functions.Funcions;
+import Models.AdopcionesModel;
 import Models.AnimalModel;
 import Models.RazasModel;
-import Models.VoluntariosModel;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -262,6 +264,15 @@ public class AnimalList {
             vboxModificarView.setLayoutX(event.getScreenX() - xOffset);
             vboxModificarView.setLayoutY(event.getScreenY() - yOffset);
         });
+        //Movimiento de ventanas de imagenes de animales
+        vboxImagen.setOnMousePressed(event -> {
+            xOffset = event.getSceneX() - vboxImagen.getLayoutX();
+            yOffset = event.getSceneY() - vboxImagen.getLayoutY();
+        });
+        vboxImagen.setOnMouseDragged(event -> {
+            vboxImagen.setLayoutX(event.getScreenX() - xOffset);
+            vboxImagen.setLayoutY(event.getScreenY() - yOffset);
+        });
 
 /*
 +-----------------------------------------------------------------------------------------------+
@@ -322,6 +333,21 @@ public class AnimalList {
         comboBoxModificarRaza.setValue(animal.getRaza());
         vboxModificarView.setVisible(true);
         hboxModificar.setVisible(false);
+    }
+    /*
+    +-----------------------------------------------------------------------------------------------+
+    |                                       RANDOM NAME ANIMALS                                     |
+    +-----------------------------------------------------------------------------------------------+
+    */
+    public void randomNameAnimal() {
+        FicheroNombre ficheroNombre = new FicheroNombre();
+        String nombre = ficheroNombre.getNombreAnimal();
+        textFieldNombreAnimal.setText(nombre);
+    }
+    public void randomNameAnimalModificar() {
+        FicheroNombre ficheroNombre = new FicheroNombre();
+        String nombre = ficheroNombre.getNombreAnimal();
+        textFieldModificarNombre.setText(nombre);
     }
 
     /*
@@ -405,10 +431,13 @@ public class AnimalList {
     public void eliminarAnimal() {
         Animale animal = (Animale) tablaAnimales.getSelectionModel().getSelectedItem();
         idAnimales = animal.getId();
-        if (idAnimales != 0) {
+        if (AdopcionesModel.existeAdopcionParaAnimal(idAnimales)) {
+            funciones.alertInfo("Error", "No se puede eliminar el animal, ya que esta asociado a una adopcion");
+        }else {
             controllerAnimal.eliminarAnimales(idAnimales);
             initialize();
         }
+
     }
 
      /*
