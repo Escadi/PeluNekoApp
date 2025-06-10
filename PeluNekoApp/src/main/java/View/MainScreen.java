@@ -34,6 +34,7 @@ public class MainScreen {
 
     public void inicio() {
         controllerMenu.showDni(textFieldVoluntario.getText(), textFieldPassword.getText());
+
     }
 
 }

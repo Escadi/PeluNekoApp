@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="840.0" prefWidth="1240.0" styleClass="backgroundScreen" stylesheets="@../Styles/Colors.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.SeleccionPane">
+
+    <VBox fx:id="vboxMain" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <children>
+            <TabPane fx:id="tabPane" stylesheets="@../Styles/TabStyle.css" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS" />
+        </children>
+    </VBox>
+</AnchorPane>

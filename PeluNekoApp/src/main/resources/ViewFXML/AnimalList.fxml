@@ -78,15 +78,6 @@
             <Line endX="1000.0" startX="0.0" stroke="#a63f22" strokeWidth="3.0" HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
-      <Button fx:id="btnAtras" layoutX="14.0" layoutY="8.0" mnemonicParsing="false" onAction="#atrasVentanas" prefHeight="45.0" prefWidth="50.0" styleClass="btnAdd" stylesheets="@../Styles/Buttons.css">
-         <graphic>
-            <ImageView fitHeight="42.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Images/Iconos/atras.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
 
 
          <VBox fx:id="vboxRegistroAnimales" alignment="TOP_CENTER" maxWidth="350.0" prefHeight="771.0" prefWidth="342.0" styleClass="vboxGeneral" stylesheets="@../Styles/vBoxStyles.css" visible="false">

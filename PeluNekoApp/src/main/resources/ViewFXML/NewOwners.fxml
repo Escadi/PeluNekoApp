@@ -75,15 +75,6 @@
             </TableView>
 
         </VBox>
-        <Button fx:id="btnAtras" layoutX="14.0" layoutY="8.0" mnemonicParsing="false" onAction="#atrasVentanas" prefHeight="45.0" prefWidth="50.0" styleClass="btnAdd" stylesheets="@../Styles/Buttons.css">
-            <graphic>
-                <ImageView fitHeight="42.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../Images/Iconos/atras.png" />
-                    </image>
-                </ImageView>
-            </graphic>
-        </Button>
 
 
         <VBox fx:id="vboxRegistroPropietario" alignment="TOP_CENTER" maxWidth="350.0" prefHeight="700.0" styleClass="vboxGeneral" stylesheets="@../Styles/vBoxStyles.css" visible="false">

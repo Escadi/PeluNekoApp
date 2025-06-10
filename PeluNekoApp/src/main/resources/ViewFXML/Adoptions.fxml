@@ -44,7 +44,7 @@
                         </ImageView>
                     </graphic>
                 </Button>
-                <Button fx:id="btnCSV" onAction="#exportarCSV" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" styleClass="btnAdd" stylesheets="@../Styles/Buttons.css" text="Button">
+                <Button fx:id="btnCSV" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#exportarCSV" styleClass="btnAdd" stylesheets="@../Styles/Buttons.css" text="Button">
                     <graphic>
                         <ImageView fitHeight="29.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -76,15 +76,6 @@
             </TableView>
 
         </VBox>
-        <Button fx:id="btnAtras" layoutX="14.0" layoutY="8.0" mnemonicParsing="false" onAction="#atrasVentanas" prefHeight="45.0" prefWidth="50.0" styleClass="btnAdd" stylesheets="@../Styles/Buttons.css">
-            <graphic>
-                <ImageView fitHeight="42.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../Images/Iconos/atras.png" />
-                    </image>
-                </ImageView>
-            </graphic>
-        </Button>
 
         <VBox fx:id="vboxModificar" alignment="TOP_CENTER" prefWidth="200" spacing="2.0" styleClass="popupBox" stylesheets="@../Styles/Buttons.css" visible="false" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
 

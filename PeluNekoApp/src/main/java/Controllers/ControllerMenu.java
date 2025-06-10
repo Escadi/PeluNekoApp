@@ -25,7 +25,7 @@ public class ControllerMenu {
         }
         if (encontrado) {
             funcion.alertInfo("Login", "Usuario correcto");
-            funcion.abrirVentana("/ViewFXML/MenuSelection.fxml", "Menu Principal");
+            funcion.abrirVentana("/ViewFXML/SeleccionPane.fxml", "Menu Principal");
         } else {
             funcion.alertInfo("Login", "Usuario incorrecto , intentelo de nuevo");
         }
